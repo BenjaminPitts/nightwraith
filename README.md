@@ -1,4 +1,8 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
+<h1>NightWraith Official Website!</h1>
+<h2>Can be viewed at: (https://nightwraithband.com)[https://nightwraithband.com]</h2>
+
+<br><br>
 <p align="center">
   <a href="https://www.gatsbyjs.com">
     <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />

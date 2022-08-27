@@ -15,17 +15,17 @@ const IndexPage = () => (
 <div class='index-box'>
 <div class='index-inner-box'>
       <StaticImage
-        src="../images/promo-photo.jpg"
+        src="../images/promo.jpg"
         width={500}
-        quality={60}
+        quality={50}
         formats={["AUTO", "WEBP", "AVIF"]}
         alt="NIghtWraith"
         style={{ margin: `1rem` }}
       />
       <StaticImage
-        src="../images/live3.jpg"
+        src="../images/live2.jpg"
         width={500}
-        quality={60}
+        quality={50}
         formats={["AUTO", "WEBP", "AVIF"]}
         alt="NIghtWraith"
         style={{ margin: `1rem` }}

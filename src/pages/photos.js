@@ -18,7 +18,7 @@ const Photos = () => (
       quality={95}
       formats={["AUTO", "WEBP", "AVIF"]}
       alt="NightWraith"
-      style={{ margin: `1rem`, boxShadow: `5px 10px black` }}
+      style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
     />
     </strong>
   </div>
@@ -31,7 +31,7 @@ const Photos = () => (
       quality={95}
       formats={["AUTO", "WEBP", "AVIF"]}
       alt="Ben"
-      style={{ margin: `1rem`, boxShadow: `5px 10px black` }}
+      style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
     />
     </strong>
   </div>
@@ -44,7 +44,7 @@ const Photos = () => (
       quality={95}
       formats={["AUTO", "WEBP", "AVIF"]}
       alt="JJ"
-      style={{ margin: `1rem`, boxShadow: `5px 10px black` }}
+      style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
     />
     </strong>
   </div>
@@ -57,7 +57,7 @@ const Photos = () => (
       quality={95}
       formats={["AUTO", "WEBP", "AVIF"]}
       alt="Igor"
-      style={{ margin: `1rem`, boxShadow: `5px 10px black` }}
+      style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
     />
     </strong>
   </div>
@@ -70,7 +70,7 @@ const Photos = () => (
       quality={95}
       formats={["AUTO", "WEBP", "AVIF"]}
       alt="NIghtWraith"
-      style={{ margin: `1rem`, boxShadow: `5px 10px black`}}
+      style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black`}}
     />
     </strong>
   </div>
@@ -83,7 +83,20 @@ const Photos = () => (
       quality={95}
       formats={["AUTO", "WEBP", "AVIF"]}
       alt="NightWraith"
-      style={{ margin: `1rem`, boxShadow: `5px 10px black` }}
+      style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+    />
+    </strong>
+  </div>
+  
+  <div class='inner-box'>
+    <strong>
+    <StaticImage
+      src="../images/live1.jpg"
+      width={300}
+      quality={95}
+      formats={["AUTO", "WEBP", "AVIF"]}
+      alt="NightWraith live"
+      style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
     />
     </strong>
   </div>
@@ -96,7 +109,7 @@ const Photos = () => (
       quality={95}
       formats={["AUTO", "WEBP", "AVIF"]}
       alt="Spy"
-      style={{ margin: `1rem`, boxShadow: `5px 10px black` }}
+      style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
     />
     </strong>
   </div>
@@ -104,25 +117,12 @@ const Photos = () => (
   <div class='inner-box'>
     <strong>
     <StaticImage
-      src="../images/live1.jpg"
+      src="../images/igor2.jpg"
       width={300}
       quality={95}
       formats={["AUTO", "WEBP", "AVIF"]}
-      alt="Hammer and Anvil Hearing"
-      style={{ margin: `1rem`, boxShadow: `5px 10px black` }}
-    />
-    </strong>
-  </div>
-
-  <div class='inner-box'>
-    <strong>
-    <StaticImage
-      src="../images/live2.jpg"
-      width={300}
-      quality={95}
-      formats={["AUTO", "WEBP", "AVIF"]}
-      alt="Caleb"
-      style={{ margin: `1rem`, boxShadow: `5px 10px black` }}
+      alt="Igor"
+      style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
     />
     </strong>
   </div>

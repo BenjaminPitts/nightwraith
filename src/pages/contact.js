@@ -7,11 +7,11 @@ import Seo from "../components/seo"
 const Contact = () => (
   <Layout>
     <Seo title="Contact" />
-    <h2>Get a hold of us!</h2>
+    <h1>Contact</h1>
     <div class='contact'>
-    <h3>Personal Email: <a href='mailto:benjaminjackpitts@gmail.com'>benjaminjackpitts@gmail.com</a></h3>
-    <h3>Band Email: <a href='mailto:nightwraithmetal@gmail.com'>nightwraithmetal@gmail.com</a></h3>
-    <h3>Management Email: <a href='mailto:metalinyourdiet2@gmail.com'>metalinyourdiet2@gmail.com</a></h3>
+    <h3>Personal: <a href='mailto:benjaminjackpitts@gmail.com'>benjaminjackpitts@gmail.com</a></h3>
+    <h3>Band: <a href='mailto:nightwraithmetal@gmail.com'>nightwraithmetal@gmail.com</a></h3>
+    <h3>Management: <a href='mailto:metalinyourdiet2@gmail.com'>metalinyourdiet2@gmail.com</a></h3>
     <h3>Live Chat: <a href='https://calendly.com/benjaminjackpitts/30min' target='blank'>Schedule a Zoom Meeting</a></h3>
     <h3>Label: <a href='https://reapingscytherecords.com/' target='blank'> Reaping Scythe Records</a></h3>
     <h3>Bandcamp: <a href='https://nightwraith.bandcamp.com/' target='blank'>https://nightwraith.bandcamp.com/</a></h3>

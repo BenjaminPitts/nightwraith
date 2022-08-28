@@ -6,7 +6,7 @@ import Seo from "../components/seo"
 
 const Press = () => (
   <Layout>
-    <h1>Recent Publications</h1>
+    <h1>Press</h1>
 <div class='press'>
   <h3>6/17/2022<a href='https://www.nocleansinging.com/2022/06/17/an-ncs-video-premiere-nightwraith-beguiler/' target='blank'> No Clean Singing (USA)</a></h3>
   <h3>4/21/2022<a href='https://www.femforgacs.hu/nightwraith-offering-2022/' target='blank'> Femforgacs (Hungary)</a></h3>

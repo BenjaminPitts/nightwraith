@@ -101,7 +101,7 @@ button:hover {
 }
 
 
-@media only screen and (max-width: 720px)
+@media only screen and (max-width: 700px)
 {
 a {
   font-size: 16px;
@@ -110,7 +110,7 @@ h2,h3 {
   font-size: 18px;
 }
 input, textarea {
-  width: 25rem;
+  width: 22rem;
   background: white;
 }
 iframe {
@@ -119,7 +119,7 @@ iframe {
 } 
 
 .iframe2 {
-  width: 22rem;
+  width: 20rem;
   height: 48rem;
 }
 .bio-text-block {

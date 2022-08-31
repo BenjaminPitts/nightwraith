@@ -11,7 +11,7 @@ const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=de
 
 const IndexPage = () => (
   <Layout>
-  <h3>Stream the new album, <i> Offering</i>, now!</h3>
+  <h1>Stream the new album, <i> Offering</i>, now!</h1>
 <div class='index-box'>
 <div class='index-inner-box'>
       <StaticImage

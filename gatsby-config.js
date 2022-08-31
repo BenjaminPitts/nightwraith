@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `NightWraith - Official Website`,
-    description: `NightWraith is a melodic heavy metal band from Denver, CO USA`,
+    title: `NightWraith`,
+    description: `NightWraith Offical Website. NightWraith is a melodic heavy metal band from Denver, CO USA`,
     author: `benjaminpitts`,
     siteUrl: `https://nightwraithband.com`,
   },

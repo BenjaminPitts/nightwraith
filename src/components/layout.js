@@ -46,9 +46,10 @@ const Layout = ({ children }) => {
           }}
         >
         <Link to="/" class='homepage'>Back to Homepage</Link>
-        <br />
+        <br /><br />
+<a href ='https://drive.google.com/file/d/1DVNzjfjZPQd1jQL2LISEkIhJYGw_hHMB/view?usp=sharing' target='_blank'rel="noreferrer" download>Black Logo </a> - <a href ='https://drive.google.com/file/d/1RNkk5AX3pKQhSM8eoxYGvB4jEjuqBIsA/view?usp=sharing' target='_blank' rel="noreferrer" download> White Logo</a>
   <p class='socials'>
-  <a href='https://www.facebook.com/nightwraithband' target='_blank' >
+  <a href='https://www.facebook.com/nightwraithband' target='_blank' rel="noreferrer">
   <StaticImage
     src="../images/fb.png"
     width={40}
@@ -57,7 +58,7 @@ const Layout = ({ children }) => {
     alt="NightWraith - Facebook"
     style={{ margin: `1rem 2rem` }}
   /></a>
-  <a href='https://www.instagram.com/nightwraithband/' target='_blank'>
+  <a href='https://www.instagram.com/nightwraithband/' target='_blank' rel="noreferrer">
   <StaticImage
     src="../images/ig.png"
     width={40}
@@ -66,7 +67,7 @@ const Layout = ({ children }) => {
     alt="NightWraith - Instagram"
     style={{ margin: `1rem 2rem` }}
   /></a>
-  <a href='https://twitter.com/nightwraithband' target='_blank'>
+  <a href='https://twitter.com/nightwraithband' target='_blank' rel="noreferrer">
   <StaticImage
     src="../images/twitter.png"
     width={40}

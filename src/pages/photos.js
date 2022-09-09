@@ -1,8 +1,8 @@
 import * as React from "react"
-import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+
 
 const Photos = () => (
   <Layout>
@@ -121,7 +121,7 @@ const Photos = () => (
       width={300}
       quality={95}
       formats={["AUTO", "WEBP", "AVIF"]}
-      alt="Igor"
+      alt="Igor2"
       style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
     />
     </strong>

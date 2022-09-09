@@ -1,13 +1,8 @@
 import * as React from "react"
-import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import * as styles from "../components/index.module.css"
 
-
-const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
 
 const IndexPage = () => (
   <Layout>
@@ -17,7 +12,7 @@ const IndexPage = () => (
       <StaticImage
         src="../images/promo.jpg"
         width={500}
-        quality={50}
+        quality={60}
         formats={["AUTO", "WEBP", "AVIF"]}
         alt="NIghtWraith"
         style={{ margin: `1rem` }}
@@ -25,13 +20,13 @@ const IndexPage = () => (
       <StaticImage
         src="../images/live2.jpg"
         width={500}
-        quality={50}
+        quality={60}
         formats={["AUTO", "WEBP", "AVIF"]}
         alt="NIghtWraith"
         style={{ margin: `1rem` }}
       />
 </div>
-      <iframe class='iframe2' src="https://bandcamp.com/EmbeddedPlayer/album=3760641137/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://nightwraith.bandcamp.com/album/offering">Offering by NightWraith</a></iframe>
+      <iframe class='iframe2' src="https://bandcamp.com/EmbeddedPlayer/album=3760641137/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" title="NW-Offering" seamless><a href="https://nightwraith.bandcamp.com/album/offering">Offering by NightWraith</a></iframe>
 </div>
   </Layout>
 )

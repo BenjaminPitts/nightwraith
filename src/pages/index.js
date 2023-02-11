@@ -10,7 +10,7 @@ const IndexPage = () => (
 <div class='index-box'>
 <div class='index-inner-box'>
       <StaticImage
-        src="../images/promo.jpg"
+        src="../images/nw-promo.jpg"
         width={500}
         quality={60}
         formats={["AUTO", "WEBP", "AVIF"]}

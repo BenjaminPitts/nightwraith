@@ -7,7 +7,7 @@ const Press = () => (
   <Layout>
     <h1>Press</h1>
 <div class='press'>
-  <h3>2/28/2023<a href='https://sixty35media.org/news/check-out-nightwraith-march-3-at-vultures/' target='blank'> Sixty35 Media (USA)</a></h3>
+  <h3>2/28/2023<a href='https://sixty35media.org/news/check-out-nightwraith-march-3-at-vultures/' target='blank'> Sixty35 Media (USA) </a></h3>
   <h3>6/17/2022<a href='https://www.nocleansinging.com/2022/06/17/an-ncs-video-premiere-nightwraith-beguiler/' target='blank'> No Clean Singing (USA)</a></h3>
   <h3>4/21/2022<a href='https://www.femforgacs.hu/nightwraith-offering-2022/' target='blank'> Femforgacs (Hungary)</a></h3>
   <h3>4/11/2022<a href='https://mhf-mag.com/interviews/interview-with-denver-co-melodic-death-metal-band-nightwraith/' target='blank'> Metalheads Forever (Switzerland)</a></h3>

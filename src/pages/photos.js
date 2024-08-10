@@ -7,8 +7,47 @@ import Seo from "../components/seo"
 const Photos = () => (
   <Layout>
     <h1>Photos</h1>
-    
+
     <div class='outer-box'>
+
+    <div class='inner-box'>
+      <strong>
+      <StaticImage
+        src="../images/nw-hidive-ben.jpg"
+        width={300}
+        quality={95}
+        formats={["AUTO", "WEBP", "AVIF"]}
+        alt="Ben"
+        style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+      />
+      </strong>
+    </div>
+
+    <div class='inner-box'>
+      <strong>
+      <StaticImage
+        src="../images/nw-hidive-spy.jpg"
+        width={300}
+        quality={95}
+        formats={["AUTO", "WEBP", "AVIF"]}
+        alt="Spy"
+        style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+      />
+      </strong>
+    </div>
+
+    <div class='inner-box'>
+      <strong>
+      <StaticImage
+        src="../images/nw-hidive-igor.jpg"
+        width={300}
+        quality={95}
+        formats={["AUTO", "WEBP", "AVIF"]}
+        alt="Igor"
+        style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+      />
+      </strong>
+    </div>
 
   <div class='inner-box'>
     <strong>
@@ -35,7 +74,7 @@ const Photos = () => (
     />
     </strong>
   </div>
-  
+
   <div class='inner-box'>
     <strong>
     <StaticImage
@@ -61,7 +100,7 @@ const Photos = () => (
     />
     </strong>
   </div>
-  
+
   <div class='inner-box'>
     <strong>
     <StaticImage
@@ -74,7 +113,7 @@ const Photos = () => (
     />
     </strong>
   </div>
-  
+
   <div class='inner-box'>
     <strong>
     <StaticImage
@@ -87,7 +126,7 @@ const Photos = () => (
     />
     </strong>
   </div>
-  
+
   <div class='inner-box'>
     <strong>
     <StaticImage
@@ -100,7 +139,7 @@ const Photos = () => (
     />
     </strong>
   </div>
-  
+
   <div class='inner-box'>
     <strong>
     <StaticImage
@@ -128,7 +167,7 @@ const Photos = () => (
   </div>
 
 </div>
-    
+
   </Layout>
 )
 

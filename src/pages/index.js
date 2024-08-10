@@ -6,28 +6,30 @@ import Seo from "../components/seo"
 
 const IndexPage = () => (
   <Layout>
-  <h1>Stream the new album, <i> Offering</i>, now!</h1>
+  <h1>New album <i> Divergence</i> releasing worldwide 9/13/2024</h1>
 <div class='index-box'>
 <div class='index-inner-box'>
       <StaticImage
-        src="../images/nw-promo.jpg"
+        src="../images/NW-PROMO-39.jpg"
         width={500}
         quality={60}
         formats={["AUTO", "WEBP", "AVIF"]}
         alt="NIghtWraith"
-        style={{ margin: `1rem` }}
+        style={{ margin: `.5rem`, border:`.1rem solid black` }}
       />
       <StaticImage
-        src="../images/live2.jpg"
+        src="../images/NW-PROMO-3.jpg"
         width={500}
         quality={60}
         formats={["AUTO", "WEBP", "AVIF"]}
         alt="NIghtWraith"
-        style={{ margin: `1rem` }}
+        style={{ margin: `.5rem`, border:`.1rem solid black` }}
       />
+
 </div>
-      <iframe class='iframe2' src="https://bandcamp.com/EmbeddedPlayer/album=3760641137/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" title="NW-Offering" seamless><a href="https://nightwraith.bandcamp.com/album/offering">Offering by NightWraith</a></iframe>
+      <iframe src="https://bandcamp.com/EmbeddedPlayer/album=3538762053/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless title="NightWraith-Divercence"><a href="https://nightwraith.bandcamp.com/album/divergence">Divergence by NightWraith</a></iframe>
 </div>
+<br />
   </Layout>
 )
 

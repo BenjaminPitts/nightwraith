@@ -27,14 +27,14 @@ const Header = ({ siteTitle }) => (
     </Link>
 
     <div class='nav'>
-    <Link to="/" class='link'> Home</Link> |
     <Link to="/bio/" class='link'> Bio</Link> |
     <Link to='/press/' class='link'> Press</Link> |
     <Link to='/videos/' class='link'> Videos</Link> |
     <Link to='/photos/' class='link'> Photos</Link> |
+    <Link to='https://nightwraith.bandcamp.com/merch' class='link' target='blank'> Merch</Link> |
     <Link to ='/contact/' class='link'> Contact</Link>
 </div>
-    
+
 </div>
 
   </header>

@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
         style={{
-          
+
           margin: `0 auto`,
           maxWidth: `var(--size-content)`,
           padding: `var(--size-gutter)`,
@@ -47,7 +47,7 @@ const Layout = ({ children }) => {
         >
         <Link to="/" class='homepage'>Back to Homepage</Link>
         <br /><br />
-<a href ='https://drive.google.com/file/d/1DVNzjfjZPQd1jQL2LISEkIhJYGw_hHMB/view?usp=sharing' target='_blank'rel="noreferrer" download>Black Logo </a> - <a href ='https://drive.google.com/file/d/1RNkk5AX3pKQhSM8eoxYGvB4jEjuqBIsA/view?usp=sharing' target='_blank' rel="noreferrer" download> White Logo</a>
+<a href ='https://drive.google.com/file/d/1CqsHz9x3Xob7bB4_nDnNFksrk5uzIwwc/view?usp=sharing' target='_blank'rel="noreferrer" download>Download LOGO </a>
   <p class='socials'>
   <a href='https://www.facebook.com/nightwraithband' target='_blank' rel="noreferrer">
   <StaticImage

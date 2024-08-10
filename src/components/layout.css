@@ -13,8 +13,10 @@ a:hover {
   cursor: pointer;
 }
 iframe {
-  width: 30rem;
-  height: 25rem;
+  width: 32rem;
+  height: 45rem;
+  border: none;
+  margin: .5rem;
 }
 header {
   display: flex;
@@ -79,7 +81,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: space-between;
   margin: 0;
   padding: 0;
 }
@@ -116,7 +118,7 @@ input, textarea {
 iframe {
   width: 22rem;
   height: 25rem;
-} 
+}
 
 .iframe2 {
   width: 20rem;

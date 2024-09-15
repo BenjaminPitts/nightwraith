@@ -6,7 +6,7 @@ import Seo from "../components/seo"
 
 const IndexPage = () => (
   <Layout>
-  <h1>New album <i> Divergence</i> releasing worldwide 9/13/2024</h1>
+  <h1>Listen to the new album <i> Divergence</i>, released on 9/13/2024</h1>
 <div class='index-box'>
 <div class='index-inner-box'>
       <StaticImage
@@ -27,7 +27,7 @@ const IndexPage = () => (
       />
 
 </div>
-      <iframe src="https://bandcamp.com/EmbeddedPlayer/album=3538762053/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless title="NightWraith-Divercence"><a href="https://nightwraith.bandcamp.com/album/divergence">Divergence by NightWraith</a></iframe>
+      <iframe class='iframe-index' src="https://bandcamp.com/EmbeddedPlayer/album=3538762053/size=large/bgcol=333333/linkcol=e32c14/transparent=true/" title="Divergence by NightWraith" seamless><a href="https://nightwraith.bandcamp.com/album/divergence">Divergence by NightWraith</a></iframe>
 </div>
 <br />
   </Layout>

@@ -13,8 +13,8 @@ a:hover {
   cursor: pointer;
 }
 iframe {
-  width: 32rem;
-  height: 45rem;
+  width: 30rem;
+  height: 35rem;
   border: none;
   margin: .5rem;
 }
@@ -84,6 +84,12 @@ button:hover {
   align-items: space-between;
   margin: 0;
   padding: 0;
+}
+.iframe-index {
+  width: 30rem;
+  height: 55rem;
+  border: none;
+  margin: .5rem;
 }
 .iframe2 {
   width: 27rem;

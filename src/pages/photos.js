@@ -207,6 +207,7 @@ const Photos = () => (
   </div>
 
 </div>
+
 <br />
 <h2>Photo Credit: Kate Rose | Josh Massara</h2>
 

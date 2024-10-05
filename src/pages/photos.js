@@ -23,70 +23,70 @@ const Photos = () => (
       </strong>
     </div>
 
-    <div class='inner-box'>
-      <strong>
-      <StaticImage
-        src="../images/full-band2.jpg"
-        width={300}
-        quality={95}
-        formats={["AUTO", "WEBP", "AVIF"]}
-        alt="Spy"
-        style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
-      />
-      </strong>
-    </div>
+    // <div class='inner-box'>
+    //   <strong>
+    //   <StaticImage
+    //     src="../images/full-band2.jpg"
+    //     width={300}
+    //     quality={95}
+    //     formats={["AUTO", "WEBP", "AVIF"]}
+    //     alt="Spy"
+    //     style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+    //   />
+    //   </strong>
+    // </div>
+    //
+    // <div class='inner-box'>
+    //   <strong>
+    //   <StaticImage
+    //     src="../images/spy-bw.jpeg"
+    //     width={300}
+    //     quality={95}
+    //     formats={["AUTO", "WEBP", "AVIF"]}
+    //     alt="Igor"
+    //     style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+    //   />
+    //   </strong>
+    // </div>
 
-    <div class='inner-box'>
-      <strong>
-      <StaticImage
-        src="../images/spy-bw.jpeg"
-        width={300}
-        quality={95}
-        formats={["AUTO", "WEBP", "AVIF"]}
-        alt="Igor"
-        style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
-      />
-      </strong>
-    </div>
-
-    <div class='inner-box'>
-      <strong>
-      <StaticImage
-        src="../images/igor-bw.jpeg"
-        width={300}
-        quality={95}
-        formats={["AUTO", "WEBP", "AVIF"]}
-        alt="Ben"
-        style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
-      />
-      </strong>
-    </div>
-
-    <div class='inner-box'>
-      <strong>
-      <StaticImage
-        src="../images/ben-bw.jpeg"
-        width={300}
-        quality={95}
-        formats={["AUTO", "WEBP", "AVIF"]}
-        alt="Spy"
-        style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
-      />
-      </strong>
-    </div>
-
-    <div class='inner-box'>
-      <strong>
-      <StaticImage
-        src="../images/caleb-bw.jpeg"
-        width={300}
-        quality={95}
-        formats={["AUTO", "WEBP", "AVIF"]}
-        alt="Igor"
-        style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
-      />
-      </strong>
-    </div>
+    // <div class='inner-box'>
+    //   <strong>
+    //   <StaticImage
+    //     src="../images/igor-bw.jpeg"
+    //     width={300}
+    //     quality={95}
+    //     formats={["AUTO", "WEBP", "AVIF"]}
+    //     alt="Ben"
+    //     style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+    //   />
+    //   </strong>
+    // </div>
+    //
+    // <div class='inner-box'>
+    //   <strong>
+    //   <StaticImage
+    //     src="../images/ben-bw.jpeg"
+    //     width={300}
+    //     quality={95}
+    //     formats={["AUTO", "WEBP", "AVIF"]}
+    //     alt="Spy"
+    //     style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+    //   />
+    //   </strong>
+    // </div>
+    //
+    // <div class='inner-box'>
+    //   <strong>
+    //   <StaticImage
+    //     src="../images/caleb-bw.jpeg"
+    //     width={300}
+    //     quality={95}
+    //     formats={["AUTO", "WEBP", "AVIF"]}
+    //     alt="Igor"
+    //     style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+    //   />
+    //   </strong>
+    // </div>
 
 
     <div class='inner-box'>
@@ -102,18 +102,18 @@ const Photos = () => (
       </strong>
     </div>
 
-    <div class='inner-box'>
-      <strong>
-      <StaticImage
-        src="../images/jacob2.jpeg"
-        width={300}
-        quality={95}
-        formats={["AUTO", "WEBP", "AVIF"]}
-        alt="Spy"
-        style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
-      />
-      </strong>
-    </div>
+    // <div class='inner-box'>
+    //   <strong>
+    //   <StaticImage
+    //     src="../images/jacob2.jpeg"
+    //     width={300}
+    //     quality={95}
+    //     formats={["AUTO", "WEBP", "AVIF"]}
+    //     alt="Spy"
+    //     style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+    //   />
+    //   </strong>
+    // </div>
 
     <div class='inner-box'>
       <strong>

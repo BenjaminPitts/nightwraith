@@ -25,6 +25,9 @@ header {
   text-align: center;
   background: black;
 }
+h3 {
+  color: gray;
+}
 input, textarea {
   width: 50rem;
   background: white;

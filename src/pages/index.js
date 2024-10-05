@@ -32,7 +32,7 @@ const IndexPage = () => (
 <br />
 <h2>Here's what some of the ciritics had to say about 'Divergence':</h2>
 <h3><i>"The contrast between the harsh vocals and the melodic, atmospheric layers creates a unique listening experience that feels both powerful and unexpectedly harmonious, pushing the boundaries of what music can offer."</i> - <a href='https://metal-temple.com/review/nightwraith-divergence/' target='blank'> Metal Temple</a></h3>
-<br />
+<br /><br />
 
   </Layout>
 )

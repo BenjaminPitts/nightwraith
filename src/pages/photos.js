@@ -88,6 +88,7 @@ const Photos = () => (
       </strong>
     </div>
 
+
     <div class='inner-box'>
       <strong>
       <StaticImage
@@ -104,7 +105,7 @@ const Photos = () => (
     <div class='inner-box'>
       <strong>
       <StaticImage
-        src="../images/jacob.jpeg"
+        src="../images/jacob2.jpeg"
         width={300}
         quality={95}
         formats={["AUTO", "WEBP", "AVIF"]}
@@ -208,6 +209,7 @@ const Photos = () => (
 </div>
 <br />
 <h2>Photo Credit: Kate Rose | Josh Massara</h2>
+
   </Layout>
 )
 

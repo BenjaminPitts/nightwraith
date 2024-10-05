@@ -30,6 +30,10 @@ const IndexPage = () => (
       <iframe class='iframe-index' src="https://bandcamp.com/EmbeddedPlayer/album=3538762053/size=large/bgcol=333333/linkcol=e32c14/transparent=true/" title="Divergence by NightWraith" seamless><a href="https://nightwraith.bandcamp.com/album/divergence">Divergence by NightWraith</a></iframe>
 </div>
 <br />
+<h2>Here's what some of the ciritics had to say about 'Divergence':</h2>
+<h3><i>"The contrast between the harsh vocals and the melodic, atmospheric layers creates a unique listening experience that feels both powerful and unexpectedly harmonious, pushing the boundaries of what music can offer."</i> - <a href='https://metal-temple.com/review/nightwraith-divergence/' target='blank'> Metal Temple</a></h3>
+<br />
+
   </Layout>
 )
 

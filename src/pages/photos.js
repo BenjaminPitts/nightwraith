@@ -13,7 +13,7 @@ const Photos = () => (
     <div class='inner-box'>
       <strong>
       <StaticImage
-        src="../images/nw-hidive-ben.jpg"
+        src="../images/full-band-bw.jpeg"
         width={300}
         quality={95}
         formats={["AUTO", "WEBP", "AVIF"]}
@@ -26,7 +26,7 @@ const Photos = () => (
     <div class='inner-box'>
       <strong>
       <StaticImage
-        src="../images/nw-hidive-spy.jpg"
+        src="../images/full-band2.jpg"
         width={300}
         quality={95}
         formats={["AUTO", "WEBP", "AVIF"]}
@@ -39,7 +39,85 @@ const Photos = () => (
     <div class='inner-box'>
       <strong>
       <StaticImage
-        src="../images/nw-hidive-igor.jpg"
+        src="../images/spy-bw.jpeg"
+        width={300}
+        quality={95}
+        formats={["AUTO", "WEBP", "AVIF"]}
+        alt="Igor"
+        style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+      />
+      </strong>
+    </div>
+
+    <div class='inner-box'>
+      <strong>
+      <StaticImage
+        src="../images/igor-bw.jpeg"
+        width={300}
+        quality={95}
+        formats={["AUTO", "WEBP", "AVIF"]}
+        alt="Ben"
+        style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+      />
+      </strong>
+    </div>
+
+    <div class='inner-box'>
+      <strong>
+      <StaticImage
+        src="../images/ben-bw.jpeg"
+        width={300}
+        quality={95}
+        formats={["AUTO", "WEBP", "AVIF"]}
+        alt="Spy"
+        style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+      />
+      </strong>
+    </div>
+
+    <div class='inner-box'>
+      <strong>
+      <StaticImage
+        src="../images/caleb-bw.jpeg"
+        width={300}
+        quality={95}
+        formats={["AUTO", "WEBP", "AVIF"]}
+        alt="Igor"
+        style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+      />
+      </strong>
+    </div>
+
+    <div class='inner-box'>
+      <strong>
+      <StaticImage
+        src="../images/igor3.jpg"
+        width={300}
+        quality={95}
+        formats={["AUTO", "WEBP", "AVIF"]}
+        alt="Ben"
+        style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+      />
+      </strong>
+    </div>
+
+    <div class='inner-box'>
+      <strong>
+      <StaticImage
+        src="../images/jacob.jpeg"
+        width={300}
+        quality={95}
+        formats={["AUTO", "WEBP", "AVIF"]}
+        alt="Spy"
+        style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+      />
+      </strong>
+    </div>
+
+    <div class='inner-box'>
+      <strong>
+      <StaticImage
+        src="../images/ben-igor.jpg"
         width={300}
         quality={95}
         formats={["AUTO", "WEBP", "AVIF"]}
@@ -65,51 +143,12 @@ const Photos = () => (
   <div class='inner-box'>
     <strong>
     <StaticImage
-      src="../images/ben.jpg"
-      width={300}
-      quality={95}
-      formats={["AUTO", "WEBP", "AVIF"]}
-      alt="Ben"
-      style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
-    />
-    </strong>
-  </div>
-
-  <div class='inner-box'>
-    <strong>
-    <StaticImage
       src="../images/jj.jpg"
       width={300}
       quality={95}
       formats={["AUTO", "WEBP", "AVIF"]}
       alt="JJ"
       style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
-    />
-    </strong>
-  </div>
-
-  <div class='inner-box'>
-    <strong>
-    <StaticImage
-      src="../images/strings.jpg"
-      width={300}
-      quality={95}
-      formats={["AUTO", "WEBP", "AVIF"]}
-      alt="Igor"
-      style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
-    />
-    </strong>
-  </div>
-
-  <div class='inner-box'>
-    <strong>
-    <StaticImage
-      src="../images/caleb.jpg"
-      width={300}
-      quality={95}
-      formats={["AUTO", "WEBP", "AVIF"]}
-      alt="NIghtWraith"
-      style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black`}}
     />
     </strong>
   </div>
@@ -167,7 +206,8 @@ const Photos = () => (
   </div>
 
 </div>
-
+<br />
+<h2>Photo Credit: Kate Rose | Josh Massara</h2>
   </Layout>
 )
 

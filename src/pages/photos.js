@@ -13,6 +13,45 @@ const Photos = () => (
     <div class='inner-box'>
       <strong>
       <StaticImage
+        src="../images/full-band-bw.JPEG"
+        width={300}
+        quality={95}
+        formats={["AUTO", "WEBP", "AVIF"]}
+        alt="Ben"
+        style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+      />
+      </strong>
+    </div>
+
+    <div class='inner-box'>
+      <strong>
+      <StaticImage
+        src="../images/blurry-band-bw.JPEG"
+        width={300}
+        quality={95}
+        formats={["AUTO", "WEBP", "AVIF"]}
+        alt="Ben"
+        style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+      />
+      </strong>
+    </div>
+
+    <div class='inner-box'>
+      <strong>
+      <StaticImage
+        src="../images/spy-bw.JPEG"
+        width={300}
+        quality={95}
+        formats={["AUTO", "WEBP", "AVIF"]}
+        alt="Ben"
+        style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+      />
+      </strong>
+    </div>
+
+    <div class='inner-box'>
+      <strong>
+      <StaticImage
         src="../images/ben-igor.jpg"
         width={300}
         quality={95}
@@ -26,7 +65,7 @@ const Photos = () => (
     <div class='inner-box'>
       <strong>
       <StaticImage
-        src="../images/jacob.jpeg"
+        src="../images/jacob.JPEG"
         width={300}
         quality={95}
         formats={["AUTO", "WEBP", "AVIF"]}

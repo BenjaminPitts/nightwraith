@@ -23,11 +23,12 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <h1>Listen to the new album <i>Divergence</i>, released on 9/13/2024</h1>
+      <br />
+      <br />
       <div className="index-box">
         <div className="index-inner-box">
           <StaticImage
-            src="../images/NW-PROMO-39.jpg"
+            src="../images/lauren-promo-bw.jpg"
             width={500}
             quality={60}
             formats={["AUTO", "WEBP", "AVIF"]}
@@ -35,7 +36,7 @@ const IndexPage = () => {
             style={{ margin: `.5rem`, border: `.1rem solid black` }}
           />
           <StaticImage
-            src="../images/NW-PROMO-3.jpg"
+            src="../images/full-band-oriental2.jpg"
             width={500}
             quality={60}
             formats={["AUTO", "WEBP", "AVIF"]}
@@ -53,8 +54,10 @@ const IndexPage = () => {
         </iframe>
       </div>
       <br />
+      <br />
       <div className="quotes">
-        <h2>Here's what some of the critics have to say about 'Divergence':</h2>
+      <h1><i>Divergence</i> - released 9/13/2024 on <a href="https://whatsleftrec.com/">What's Left Records</a></h1>
+        <h2>Here's what some of the critics had to say about it:</h2>
         <br />
         <h3><i>"The contrast between the harsh vocals and the melodic, atmospheric layers creates a unique listening experience
           <br />

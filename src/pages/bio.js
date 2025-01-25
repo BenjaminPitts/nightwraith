@@ -25,25 +25,29 @@ const Bio = () => {
     <Layout>
       <h1>Bio</h1>
       <StaticImage
-        src="../images/NW-PROMO-53.jpg"
+        src="../images/blurry-band-bw.JPEG"
         width={500}
         quality={80}
         formats={["AUTO", "WEBP", "AVIF"]}
         alt="NW Promo"
         style={{ margin: `1rem` }}
       />
+      <br /><br />
       <div className="bio-text-block">
         NightWraith is a melodic death metal band from Denver, CO that explores the genre with an eclectic and intuitive approach. Their music encompasses poignant themes: seeking the sublime in nature, being genuine in a deceptive world, and living with the idea of death—concepts that unite us all as people. Using haunting melodies and triumphant anthems, NightWraith offers listeners a sonic pilgrimage into the heart of being human.
         <br /><br />
-        The band was formed in 2016 without any preconceived notion of genre, allowing them to develop their sound organically. "Gone are the days of trying to be the fastest or heaviest band," says founding member Benjamin Pitts. "We've already done bands like that and now we just want to write music that is fun to play and meaningful to us." The members of NightWraith have been musical companions for over a decade in the Denver scene, but this lineup achieves its own unique approach to aggressive music, inspired by but not limited to the past. After releasing a self-titled album in 2019, Nightwraith gained notoriety and played shows with heavy hitters like ‘Khemmis’, but they were still developing their sound and being called to a new musical frontier.
+        The band was formed in 2016 (Benjamin Pitts, Isidro Soto, Igor Panasewicz, Jerry Hilger) without any preconceived notion of genre, allowing them to develop their sound organically. The members of NightWraith had already been musical companions for over a decade in the Denver scene, but their lineup achieved its own unique approach to aggressive music - inspired by, but not limited to the past. After releasing a <b>self-titled album in 2019</b>, Nightwraith gained notoriety but were still developing their sound and being called to a new musical frontier.
         <br /><br />
-        Pulling inspiration from a wide array of bands and genres, NightWraith has been sonically refined into something truly unique. "It's like we took all the heavy parts from bands like <b>Carcass</b>, and <b>Enslaved</b>, and combined it with the warmth of classic bands like <b>Thin Lizzy</b>, and <b>Blue Oyster Cult</b>", explains Ben. "It has been really fun inserting rock guitar and organ tones into a genre that typically avoids these types of sounds." NightWraith released their sophomore album, Offering, in the spring of 2022, receiving widespread praise from critics.
+        Pulling inspiration from a wide array of bands and genres, NightWraith sonically refined their sound into something unique by adding a full-time keyboard player (Caleb Jose Tardio). "Writing new material with keys in mind made us want to sound like we were taking all the heavy parts from bands like <b>Carcass</b>, and <b>Enslaved</b>, and combined it with the warmth of classic bands like <b>Thin Lizzy</b>, and <b>Blue Oyster Cult</b>", explains Ben. "It's' been fun putting big rock riffs and Hammond organ tones into a genre that sometimes avoids these types of sounds." NightWraith released their sophomore album, <b>Offering, in the spring of 2022</b>, which received praise from critics and was supported by a number of live performances.
         <br /><br />
-        As NightWraith continues to evolve, they refined their sound even further and released their 3rd full-length studio album, 'Divergence' which captures their vision even more closely, bringing in more 'film-score' type elements with the synthesizer tones. Benjamin Pitts explains: "Musically, the songs on ‘Divergence’ utilize classic songwriting structures (verse/chorus/bridge/lead). The drums are fast with lots of big rock fills and the choice to use fast double bass and blast beats give the album a driving, more ‘classic’ metal sound. The keyboards/synthesizer tones are the icing on the cake and are what really color the album in a nostalgic sounding way. The melodies were written to lay on top of the guitars giving the songs a musical complexity that can be rare within the heavy metal genre. There are also a lot of solos on this album, but none of them are overly ‘shreddy’ and are meant to serve the song, not the player."
+        As NightWraith continued to evolve, the producer of Offering (Jacob St. Amand) entered the band on bass and they refined their sound even further. Fall of 2024 saw the release of their <b>3rd full-length studio album, 'Divergence'</b>. This new iteration of songs captured their vision more closely and cleverly used analog synthesizer tones to give the album a 'film score' type of quality. Ben explains: "Musically, the songs on Divergence are melodic and emotional. But the drums are fast with lots of big rock fills, double bass, and blast beats, so it has a driving pace and ‘classic’ metal tone. The keyboards and synths are the icing on the cake though, and really color the album in a nostalgic, 80's type of way. The key melodies often lay on top of the guitars - giving the songs a musical complexity that makes the album stand out in a really memorable way." 
+        
         <br /><br />
-        NightWraith also stepped up the production on this album by recruiting some talented guest musicians to contribute (Andreas Wild - The Nightsweats, Kelly Schilling - Dreadnought, Joey Truscelli - Wayfarer, Cole Rudy - Dragondeer, Jeremy Portz - Abhoria), and added extra rhythmic layers using acoustic guitar and percussive instruments like cowbell, shakers, and chimes. Producer Zack Ohren (Machine Head, Immolation, Fallujah) then mixed and mastered the project, giving it a top-shelf sounding production quality.
+        NightWraith also stepped up the production on Divergence by recruiting some of their talented friends to contribute (Andreas Wild - The Nightsweats, Kelly Schilling - Dreadnought, Joey Truscelli - Wayfarer, Cole Rudy - Dragondeer, Jeremy Portz - Abhoria), and added extra rhythmic layers with acoustic guitar, and percussive instruments like cowbell, shakers, and chimes. Producer Zack Ohren (Machine Head, Immolation) mixed and mastered the project, giving it a top-shelf sounding production quality.
+        
         <br /><br />
-        'Divergence' was released worldwide on 9/13/2024 via <a href="https://whatsleftrec.com/" target="blank">What's Left Records</a>.
+        With the addition of keyboard player Lauren Viera (Dreadnought) in 2025, NightWraith looks ahead to the future with plans of playing more shows to a wider audience, and writing new material that will mark their next chapter and evolution as a band.
+
         <br />
       </div>
     </Layout>

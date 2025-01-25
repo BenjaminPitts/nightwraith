@@ -27,10 +27,89 @@ const Photos = () => {
       <h1>Photos</h1>
 
       <div className="outer-box">
+        
+      <div className="inner-box">
+          <strong>
+            <StaticImage
+              src="../images/full-band-oriental3.jpg"
+              width={300}
+              quality={95}
+              formats={["AUTO", "WEBP", "AVIF"]}
+              alt="Full Band"
+              style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+            />
+          </strong>
+        </div>
+      
+      <div className="inner-box">
+          <strong>
+            <StaticImage
+              src="../images/hug.jpg"
+              width={300}
+              quality={95}
+              formats={["AUTO", "WEBP", "AVIF"]}
+              alt="Full Band"
+              style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+            />
+          </strong>
+        </div>
+      
+      <div className="inner-box">
+          <strong>
+            <StaticImage
+              src="../images/ben-jacob.jpg"
+              width={300}
+              quality={95}
+              formats={["AUTO", "WEBP", "AVIF"]}
+              alt="Full Band"
+              style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+            />
+          </strong>
+        </div>
+      
+      <div className="inner-box">
+          <strong>
+            <StaticImage
+              src="../images/spy-oriental.jpg"
+              width={300}
+              quality={95}
+              formats={["AUTO", "WEBP", "AVIF"]}
+              alt="Full Band"
+              style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+            />
+          </strong>
+        </div>
+      
+      <div className="inner-box">
+          <strong>
+            <StaticImage
+              src="../images/lauren-oriental.jpg"
+              width={300}
+              quality={95}
+              formats={["AUTO", "WEBP", "AVIF"]}
+              alt="Full Band"
+              style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+            />
+          </strong>
+        </div>
+      
+      <div className="inner-box">
+          <strong>
+            <StaticImage
+              src="../images/ben-igor-oriental.jpg"
+              width={300}
+              quality={95}
+              formats={["AUTO", "WEBP", "AVIF"]}
+              alt="Full Band"
+              style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+            />
+          </strong>
+        </div>
+        
         <div className="inner-box">
           <strong>
             <StaticImage
-              src="../images/full-band-bw.JPEG"
+              src="../images/hidive3.jpg"
               width={300}
               quality={95}
               formats={["AUTO", "WEBP", "AVIF"]}
@@ -43,7 +122,7 @@ const Photos = () => {
         <div className="inner-box">
           <strong>
             <StaticImage
-              src="../images/blurry-band-bw.JPEG"
+              src="../images/full-band-oriental.jpg"
               width={300}
               quality={95}
               formats={["AUTO", "WEBP", "AVIF"]}
@@ -56,7 +135,7 @@ const Photos = () => {
         <div className="inner-box">
           <strong>
             <StaticImage
-              src="../images/spy-bw.JPEG"
+              src="../images/ben-oriental3.jpg"
               width={300}
               quality={95}
               formats={["AUTO", "WEBP", "AVIF"]}
@@ -121,7 +200,7 @@ const Photos = () => {
         <div className="inner-box">
           <strong>
             <StaticImage
-              src="../images/jacob.JPEG"
+              src="../images/igor-hidive2.jpg"
               width={300}
               quality={95}
               formats={["AUTO", "WEBP", "AVIF"]}
@@ -134,7 +213,46 @@ const Photos = () => {
         <div className="inner-box">
           <strong>
             <StaticImage
-              src="../images/igor3.jpg"
+              src="../images/hidive.jpg"
+              width={300}
+              quality={95}
+              formats={["AUTO", "WEBP", "AVIF"]}
+              alt="Igor"
+              style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+            />
+          </strong>
+        </div>
+
+        <div className="inner-box">
+          <strong>
+            <StaticImage
+              src="../images/caleb-hidive.jpg"
+              width={300}
+              quality={95}
+              formats={["AUTO", "WEBP", "AVIF"]}
+              alt="Igor"
+              style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+            />
+          </strong>
+        </div>
+
+        <div className="inner-box">
+          <strong>
+            <StaticImage
+              src="../images/hidive2.jpg"
+              width={300}
+              quality={95}
+              formats={["AUTO", "WEBP", "AVIF"]}
+              alt="Igor"
+              style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+            />
+          </strong>
+        </div>
+
+        <div className="inner-box">
+          <strong>
+            <StaticImage
+              src="../images/igor-hidive.jpg"
               width={300}
               quality={95}
               formats={["AUTO", "WEBP", "AVIF"]}

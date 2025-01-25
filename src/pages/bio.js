@@ -46,7 +46,7 @@ const Bio = () => {
         NightWraith also stepped up the production on Divergence by recruiting some of their talented friends to contribute (Andreas Wild - The Nightsweats, Kelly Schilling - Dreadnought, Joey Truscelli - Wayfarer, Cole Rudy - Dragondeer, Jeremy Portz - Abhoria), and added extra rhythmic layers with acoustic guitar, and percussive instruments like cowbell, shakers, and chimes. Producer Zack Ohren (Machine Head, Immolation) mixed and mastered the project, giving it a top-shelf sounding production quality.
         
         <br /><br />
-        With the addition of keyboard player Lauren Viera (Dreadnought) in 2025, NightWraith looks ahead to the future with plans of playing more shows throughout a wider market, and writing new material that will mark their next chapter and evolution as a band.
+        With the addition of keyboard player Lauren Viera (Dreadnought) in 2025, NightWraith looks ahead to the future with plans of playing more shows to a wider audience, and writing new material that will mark their next chapter and evolution as a band.
 
         <br />
       </div>

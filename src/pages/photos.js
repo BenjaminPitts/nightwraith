@@ -28,6 +28,84 @@ const Photos = () => {
 
       <div className="outer-box">
         
+      <div className="inner-box">
+          <strong>
+            <StaticImage
+              src="../images/full-band-oriental3.jpg"
+              width={300}
+              quality={95}
+              formats={["AUTO", "WEBP", "AVIF"]}
+              alt="Full Band"
+              style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+            />
+          </strong>
+        </div>
+      
+      <div className="inner-box">
+          <strong>
+            <StaticImage
+              src="../images/hug.jpg"
+              width={300}
+              quality={95}
+              formats={["AUTO", "WEBP", "AVIF"]}
+              alt="Full Band"
+              style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+            />
+          </strong>
+        </div>
+      
+      <div className="inner-box">
+          <strong>
+            <StaticImage
+              src="../images/ben-jacob.jpg"
+              width={300}
+              quality={95}
+              formats={["AUTO", "WEBP", "AVIF"]}
+              alt="Full Band"
+              style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+            />
+          </strong>
+        </div>
+      
+      <div className="inner-box">
+          <strong>
+            <StaticImage
+              src="../images/spy-oriental.jpg"
+              width={300}
+              quality={95}
+              formats={["AUTO", "WEBP", "AVIF"]}
+              alt="Full Band"
+              style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+            />
+          </strong>
+        </div>
+      
+      <div className="inner-box">
+          <strong>
+            <StaticImage
+              src="../images/lauren-oriental.jpg"
+              width={300}
+              quality={95}
+              formats={["AUTO", "WEBP", "AVIF"]}
+              alt="Full Band"
+              style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+            />
+          </strong>
+        </div>
+      
+      <div className="inner-box">
+          <strong>
+            <StaticImage
+              src="../images/ben-igor-oriental.jpg"
+              width={300}
+              quality={95}
+              formats={["AUTO", "WEBP", "AVIF"]}
+              alt="Full Band"
+              style={{ margin: `1rem .5rem`, boxShadow: `5px 10px black` }}
+            />
+          </strong>
+        </div>
+        
         <div className="inner-box">
           <strong>
             <StaticImage
@@ -57,7 +135,7 @@ const Photos = () => {
         <div className="inner-box">
           <strong>
             <StaticImage
-              src="../images/spy-bw.JPEG"
+              src="../images/ben-oriental3.jpg"
               width={300}
               quality={95}
               formats={["AUTO", "WEBP", "AVIF"]}

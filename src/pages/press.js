@@ -25,6 +25,8 @@ const Press = () => {
       <Seo title="Press" />
       <h1>Press</h1>
       <div className="press">
+        <h3>12/18/2025 <a href="https://www.decibelmagazine.com/2025/12/18/track-premiere-nightwraith-the-candlelight/" target="blank"> Decibel (USA)</a></h3>
+        <br></br>
         <h3>11/6/2024 <a href="https://www.metalcrypt.com/pages/review.php?revid=15981" target="blank"> Metal Crypt (USA)</a></h3>
         <h3>9/30/2024 <a href="https://www.nocleansinging.com/2024/09/30/a-double-dose-of-denver-death-metal-glacial-tomb-nightwraith/" target="blank"> No Clean Singing (USA)</a></h3>
         <h3>9/19/2024 <a href="https://www.westword.com/music/nightwraith-celebrates-album-release-at-hi-dive-in-denver-21898836" target="blank"> Westword (USA)</a></h3>
@@ -36,8 +38,6 @@ const Press = () => {
         <h3>8/29/2024 <a href="https://theprogspace.com/nightwraith-premieres-perpetual-night-music-video/" target="blank"> The Progspace (USA)</a></h3>
         <h3>7/30/2024 <a href="https://www.nocleansinging.com/2024/07/30/an-ncs-video-premiere-nightwraith-whispers-of-dragonflies/" target="blank"> No Clean Singing (USA)</a></h3>
         <h3>7/30/2024 <a href="https://ashermediarelations.com/2024/07/30/nightwraith-unleashes-first-single-video-whispers-of-dragonflies-off-new-melodic-death-metal-album-divergence-out-sept-2024/" target="blank"> Asher Media Relations (CAN)</a></h3>
-        <br />
-        <h3>2/28/2023 <a href="https://sixty35media.org/news/check-out-nightwraith-march-3-at-vultures/" target="blank"> Sixty35 Media (USA)</a></h3>
         <br />
         <h3>6/17/2022 <a href="https://www.nocleansinging.com/2022/06/17/an-ncs-video-premiere-nightwraith-beguiler/" target="blank"> No Clean Singing (USA)</a></h3>
         <h3>3/24/2022 <a href="https://metalinjection.net/av/full-album-stream/nightwraith-brings-the-blackened-heavy-metal-on-new-album-offering" target="blank"> Metal Injection (USA)</a></h3>

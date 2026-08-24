@@ -44,14 +44,29 @@ const IndexPage = () => {
             style={{ margin: `.5rem`, border: `.1rem solid black` }}
           />
         </div>
-        <iframe
-          className="iframe-index"
-          src="https://bandcamp.com/EmbeddedPlayer/album=3538762053/size=large/bgcol=333333/linkcol=e32c14/transparent=true/"
-          title="Divergence by NightWraith"
-          seamless
-        >
-          <a href="https://nightwraith.bandcamp.com/album/divergence">Divergence by NightWraith</a>
-        </iframe>
+        <div className="music-embeds">
+          <iframe
+            data-testid="embed-iframe"
+            style={{ border: 0, width: `100%`, maxWidth: `400px`, height: `352px`, borderRadius: `12px` }}
+            src="https://open.spotify.com/embed/album/5GudIl7FBjtLVzFuAC5LkY?utm_source=generator&si=1ce457a2defa4aee"
+            height="352"
+            frameBorder="0"
+            title="Divergence by NightWraith on Spotify"
+            allowFullScreen
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          >
+            <a href="https://open.spotify.com/album/5GudIl7FBjtLVzFuAC5LkY">Divergence by NightWraith on Spotify</a>
+          </iframe>
+          <iframe
+            style={{ border: 0, width: `400px`, height: `352px`, borderRadius: `12px` }}
+            src="https://bandcamp.com/EmbeddedPlayer/album=3538762053/size=large/bgcol=333333/linkcol=0f91ff/artwork=small/transparent=true/"
+            title="Divergence by NightWraith on Bandcamp"
+            seamless
+          >
+            <a href="https://nightwraith.bandcamp.com/album/divergence">Divergence by NightWraith</a>
+          </iframe>
+        </div>
       </div>
       <br />
       <br />

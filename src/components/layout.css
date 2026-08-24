@@ -5,16 +5,16 @@ body {
 }
 a {
   text-decoration: none;
-  color:ivory;
+  color: ivory;
   font-size: 25px;
 }
 a:hover {
-  color:gray;
+  color: gray;
   cursor: pointer;
 }
 iframe {
   width: 30rem;
-  height: 35rem;
+  height: 34rem;
   border: none;
   margin: .5rem;
 }
@@ -88,9 +88,15 @@ button:hover {
   margin: 0;
   padding: 0;
 }
+.music-embeds {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .iframe-index {
-  width: 30rem;
-  height: 55rem;
+  width: 100%;
+  max-width: 36rem;
+  height: 352px;
   border: none;
   margin: .5rem;
 }
@@ -120,12 +126,11 @@ button:hover {
 a {
   font-size: 16px;
  }
-h2,h3 {
+h2, h3 {
   font-size: 18px;
 }
 input, textarea {
   width: 22rem;
-  background: white;
 }
 iframe {
   width: 22rem;
@@ -140,9 +145,12 @@ iframe {
   margin: .5rem 1rem;
 }
 .index-box {
-  display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+.iframe-index {
+  max-width: 24rem;
 }
 }

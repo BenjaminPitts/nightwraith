@@ -34,19 +34,27 @@ const Bio = () => {
       />
       <br /><br />
       <div className="bio-text-block">
-        NightWraith is a melodic death metal band from Denver, CO that explores the genre with an eclectic and intuitive approach. Their music encompasses poignant themes: seeking the sublime in nature, being genuine in a deceptive world, and living with the idea of death—concepts that unite us all as people. Using haunting melodies and triumphant anthems, NightWraith offers listeners a sonic pilgrimage into the heart of being human.
+        NightWraith is a melodic heavy metal band from Denver, Colorado, formed in 2016. Their music combines death metal, progressive songwriting and 80s inspired synths into something dark, melodic and atmospheric. Lyrically, the band explores mortality, nature, authenticity and the search for meaning in a deceptive world. Haunting melodies and moments of triumph offer a counterpoint to the darker themes, creating music that is heavy without abandoning warmth or humanity.
+
         <br /><br />
-        The band was formed in 2016 (Benjamin Pitts, Isidro Soto, Igor Panasewicz, Jerry Hilger) without any preconceived notion of genre, allowing them to develop their sound organically. The members of NightWraith had already been musical companions for over a decade in the Denver scene, but their lineup achieved its own unique approach to aggressive music - inspired by, but not limited to the past. After releasing a <b>self-titled album in 2019</b>, Nightwraith gained notoriety but were still developing their sound and being called to a new musical frontier.
+
+        The band began among longtime musical companions in the Denver metal scene, without much concern for fitting neatly into a particular genre. Their <b>self titled debut arrived in 2019</b>, followed by <b>Offering in 2022</b>. During those years, keyboards became increasingly important to NightWraith's identity. Hammond organ, synthesizers and classic rock melody began finding their way into music rooted in death metal. The unlikely combination drew equally from the aggression of <b>Carcass and Enslaved</b> that meets the warmth of <b>Thin Lizzy and Blue Oyster Cult</b>.
+
         <br /><br />
-        Pulling inspiration from a wide array of bands and genres, NightWraith sonically refined their sound into something unique by adding a full-time keyboard player (Caleb Jose Tardio). "Writing new material with keys in mind made us want to sound like we were taking all the heavy parts from bands like <b>Carcass</b>, and <b>Enslaved</b>, and combined it with the warmth of classic bands like <b>Thin Lizzy</b>, and <b>Blue Oyster Cult</b>", explains Ben. "It's' been fun putting big rock riffs and Hammond organ tones into a genre that sometimes avoids these types of sounds." NightWraith released their sophomore album, <b>Offering, in the spring of 2022</b>, which received praise from critics and was supported by a number of live performances.
+
+        NightWraith pushed this idea much further on their third album, <b>Divergence</b>, released in 2024. Fast drums and heavy guitars collided with analog synthesizers and cinematic melodies, at times giving the record the atmosphere of a forgotten 80's film score. Friends from <b>Dreadnought, Wayfarer, Dragondeer, The Nightsweats, and Abhoria</b> contributed to the sessions, while producer <b>Zack Ohren (Machine Head, Immolation)</b> mixed and mastered the album.
+
         <br /><br />
-        As NightWraith continued to evolve, the producer of Offering (Jacob St. Amand) entered the band on bass and they refined their sound even further. Fall of 2024 saw the release of their <b>3rd full-length studio album, 'Divergence'</b>. This new iteration of songs captured their vision more closely and cleverly used analog synthesizer tones to give the album a 'film score' type of quality. Ben explains: "Musically, the songs on Divergence are melodic and emotional. But the drums are fast with lots of big rock fills, double bass, and blast beats, so it has a driving pace and ‘classic’ metal tone. The keyboards and synths are the icing on the cake though, and really color the album in a nostalgic, 80's type of way. The key melodies often lay on top of the guitars - giving the songs a musical complexity that makes the album stand out in a really memorable way." 
-        
+
+        With <b>Lauren Viera (Dreadnought)</b> joining on keyboards in 2025, the band entered another period of transformation. NightWraith's current and former members also have roots in <b>Primitive Man, In the Company of Serpents</b> and <b>Dreadnought</b>, reflecting the strange cross section of Denver's heavy music scene that has surrounded the project from its beginning.
+
         <br /><br />
-        NightWraith also stepped up the production on Divergence by recruiting some of their talented friends to contribute (Andreas Wild - The Nightsweats, Kelly Schilling - Dreadnought, Joey Truscelli - Wayfarer, Cole Rudy - Dragondeer, Jeremy Portz - Abhoria), and added extra rhythmic layers with acoustic guitar, and percussive instruments like cowbell, shakers, and chimes. Producer Zack Ohren (Machine Head, Immolation) mixed and mastered the project, giving it a top-shelf sounding production quality.
-        
+
+        Nearly ten years after forming, NightWraith has now completed their <b>fourth full length album</b>. The new record promises to be darker, heavier and more focused, while pushing further into the contrasts that have gradually come to define the band. Death metal aggression sits beside nostalgic synth tones, bleakness gives way to melody, and moments of tension open into something strangely triumphant.
+
         <br /><br />
-        With the addition of keyboard player Lauren Viera (Dreadnought) in 2025, NightWraith looks ahead to the future with plans of playing more shows to a wider audience, and writing new material that will mark their next chapter and evolution as a band.
+
+        Four albums in, NightWraith sounds less interested than ever in where those elements are supposed to belong, and more certain of what to do actually with them.
 
         <br />
       </div>

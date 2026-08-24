@@ -26,8 +26,7 @@ const Contact = () => {
       <Seo title="Contact" />
       <h1>Contact</h1>
       <div className="contact">
-        <h3>Email: <a href="mailto:nightwraithmetal@gmail.com">nightwraithmetal@gmail.com</a></h3>
-        <h3>Label: <a href="https://whatsleftrec.com/" target="blank">https://whatsleftrec.com/</a></h3>
+        <h3>Email/booking: <a href="mailto:nightwraithmetal@gmail.com">nightwraithmetal@gmail.com</a></h3>
         <h3>Bandcamp: <a href="https://nightwraith.bandcamp.com/" target="blank">https://nightwraith.bandcamp.com/</a></h3>
         <h3>Instagram: <a href="https://www.instagram.com/nightwraithband/" target="blank">https://www.instagram.com/nightwraithband/</a></h3>
         <h3>Spotify: <a href="https://open.spotify.com/artist/4xM6FsTNQOl7OuzAZ0FgXm" target="blank">https://open.spotify.com/artist/4xM6FsTNQOl7OuzAZ0FgXm</a></h3>

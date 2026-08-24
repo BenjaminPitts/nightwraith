@@ -23,7 +23,6 @@ const Photos = () => {
 
   return (
     <Layout>
-      <Seo title="Photos" />
       <h1>Photos</h1>
 
       <div className="outer-box">
@@ -347,6 +346,12 @@ const Photos = () => {
   );
 };
 
-export const Head = () => <Seo title="Photos" />
+export const Head = () => (
+  <Seo
+    title="Photos"
+    description="Official NightWraith live and promo photos."
+    pathname="/photos/"
+  />
+)
 
 export default Photos;

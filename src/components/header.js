@@ -16,9 +16,9 @@ const Header = ({ siteTitle }) => (
   <div class='header'>
     <Link to="/">
       <StaticImage
-      src="../images/logo2.png"
+      src="../images/NW-LOGO-2.png"
       id='top'
-      width={300}
+      width={380}
       quality={95}
       formats={["AUTO", "WEBP", "AVIF"]}
       alt="NightWraith"

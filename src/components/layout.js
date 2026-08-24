@@ -47,7 +47,7 @@ const Layout = ({ children }) => {
         >
         <Link to="/" class='homepage'>Back to Homepage</Link>
         <br /><br />
-<a href ='https://drive.google.com/file/d/1CqsHz9x3Xob7bB4_nDnNFksrk5uzIwwc/view?usp=sharing' target='_blank'rel="noreferrer" download>Download LOGO </a>
+<a href ='https://drive.google.com/file/d/1lEssDOOwnhG12KbQpA_lNaFbG-RnR3Hf/view?usp=sharing' target='_blank'rel="noreferrer" download>Download LOGO </a>
   <p class='socials'>
   <a href='https://www.facebook.com/nightwraithband' target='_blank' rel="noreferrer">
   <StaticImage

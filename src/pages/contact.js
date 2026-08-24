@@ -23,7 +23,6 @@ const Contact = () => {
 
   return (
     <Layout>
-      <Seo title="Contact" />
       <h1>Contact</h1>
       <div className="contact">
         <h3>Email/booking: <a href="mailto:nightwraithmetal@gmail.com">nightwraithmetal@gmail.com</a></h3>
@@ -39,5 +38,13 @@ const Contact = () => {
     </Layout>
   );
 };
+
+export const Head = () => (
+  <Seo
+    title="Contact"
+    description="Contact NightWraith for booking, press, and direct inquiries."
+    pathname="/contact/"
+  />
+)
 
 export default Contact;

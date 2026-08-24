@@ -22,7 +22,6 @@ const Press = () => {
 
   return (
     <Layout>
-      <Seo title="Press" />
       <h1>Press</h1>
       <div className="press">
         <h3>12/18/2025 <a href="https://www.decibelmagazine.com/2025/12/18/track-premiere-nightwraith-the-candlelight/" target="blank"> Decibel (USA)</a></h3>
@@ -50,6 +49,12 @@ const Press = () => {
   );
 };
 
-export const Head = () => <Seo title="Press" />
+export const Head = () => (
+  <Seo
+    title="Press"
+    description="Press coverage, reviews, and features about NightWraith."
+    pathname="/press/"
+  />
+)
 
 export default Press;

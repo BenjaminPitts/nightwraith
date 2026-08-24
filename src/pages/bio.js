@@ -62,6 +62,12 @@ const Bio = () => {
   );
 };
 
-export const Head = () => <Seo title="Bio" />
+export const Head = () => (
+  <Seo
+    title="Bio"
+    description="Learn about NightWraith, a melodic heavy metal band from Denver, and the story behind their albums."
+    pathname="/bio/"
+  />
+)
 
 export default Bio;

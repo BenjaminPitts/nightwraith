@@ -38,6 +38,12 @@ const Videos = () => (
   </Layout>
 )
 
-export const Head = () => <Seo title="Videos" />
+export const Head = () => (
+  <Seo
+    title="Videos"
+    description="Watch official NightWraith music videos and live performance clips."
+    pathname="/videos/"
+  />
+)
 
 export default Videos

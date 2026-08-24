@@ -101,11 +101,32 @@ const IndexPage = () => {
   );
 };
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
-export const Head = () => <Seo title="Home" />
+const homeStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  name: "NightWraith",
+  url: "https://nightwraithband.com/",
+  genre: ["Melodic Death Metal", "Heavy Metal"],
+  foundingLocation: {
+    "@type": "Place",
+    name: "Denver, Colorado, USA",
+  },
+  sameAs: [
+    "https://nightwraith.bandcamp.com/",
+    "https://open.spotify.com/artist/4xM6FsTNQOl7OuzAZ0FgXm",
+    "https://www.facebook.com/nightwraithband",
+    "https://www.instagram.com/nightwraithband/",
+    "https://twitter.com/nightwraithband",
+  ],
+}
+
+export const Head = () => (
+  <Seo
+    title="NightWraith"
+    description="Official NightWraith website featuring music, videos, photos, press coverage, and contact information."
+    pathname="/"
+    structuredData={homeStructuredData}
+  />
+)
 
 export default IndexPage;

@@ -65,7 +65,7 @@ const Bio = () => {
 export const Head = () => (
   <Seo
     title="Bio"
-    description="Learn about NightWraith, a melodic heavy metal band from Denver, and the story behind their albums."
+    description="Learn about NightWraith, a melodic death metal band from Denver, CO, and the story behind their music."
     pathname="/bio/"
   />
 )

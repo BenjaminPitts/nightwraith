@@ -7,26 +7,15 @@
 
 import * as React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
 import Header from "./header"
 import "./layout.css"
 import { StaticImage } from "gatsby-plugin-image"
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <Header />
       <div
         style={{
 
@@ -45,10 +34,10 @@ const Layout = ({ children }) => {
             textAlign: `center`
           }}
         >
-        <Link to="/" class='homepage'>Back to Homepage</Link>
+          <Link to="/" className='homepage'>Back to Homepage</Link>
         <br /><br />
-<a href ='https://drive.google.com/file/d/1lEssDOOwnhG12KbQpA_lNaFbG-RnR3Hf/view?usp=sharing' target='_blank'rel="noreferrer" download>Download LOGO </a>
-  <p class='socials'>
+<a href ='https://drive.google.com/file/d/1lEssDOOwnhG12KbQpA_lNaFbG-RnR3Hf/view?usp=sharing' target='_blank' rel="noreferrer" download>Download LOGO </a>
+        <p className='socials'>
   <a href='https://www.facebook.com/nightwraithband' target='_blank' rel="noreferrer">
   <StaticImage
     src="../images/fb.png"

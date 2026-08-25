@@ -341,7 +341,7 @@ const Photos = () => {
       </div>
 
       <br />
-      <h2>Photo Credit: <a href="https://www.instagram.com/permanent_ephemera_photo/" target="blank">Josh Massara</a> | <a href="https://www.instagram.com/kateshootsmusic/" target="blank">Kate Rose</a></h2>
+      <h2>Photo Credit: <a href="https://www.instagram.com/permanent_ephemera_photo/" target="_blank" rel="noreferrer">Josh Massara</a> | <a href="https://www.instagram.com/kateshootsmusic/" target="_blank" rel="noreferrer">Kate Rose</a></h2>
     </Layout>
   );
 };

@@ -20,7 +20,7 @@ match an unmodified-baseline build.
 - Remote `main` was verified at that same commit; no remote `2026-facelift` branch
   existed when checked.
 - Pull request targets `main`; no direct commit to `main` and no merge.
-- Pull request URL: pending creation; this report will be updated after creation.
+- Pull request: [#7](https://github.com/BenjaminPitts/nightwraith/pull/7).
 
 ## Changes made and files modified
 
@@ -232,6 +232,40 @@ The existing installed `js-yaml` parser validated workflow syntax and assertions
 verified a PR-only trigger, Node-version-file selection, `npm ci`, and
 `npm run build`. No tooling dependency was added.
 
+### GitHub delivery and CI
+
+Executed:
+
+```sh
+git add package.json README.md .nvmrc .github/workflows/build.yml PHASE-1B-RESULTS.md
+git commit -m "Make Gatsby local development reproducible on Node 22" \
+  -m "Pin the validated runtime, document setup, add PR build validation, and initialize the cache before development startup." \
+  -m "Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+git push --set-upstream origin chore/reproducible-local-development
+gh pr create --base main --head chore/reproducible-local-development \
+  --title "Phase 1B: Reproducible Gatsby development on Node 22" \
+  --body-file PHASE-1B-RESULTS.md
+gh run watch 40417105087 --exit-status --interval 15
+```
+
+PR #7 is open. The first Actions run is
+[Build 40417105087](https://github.com/BenjaminPitts/nightwraith/actions/runs/40417105087).
+That run completed successfully on Ubuntu: Node setup, npm selection, clean
+installation, production build, and post-job cache steps all passed. The build
+job took 4 minutes 50 seconds. This validates the implementation commit
+`399b06b`; the subsequent report-only commit updates these results.
+
+The existing Netlify integration also reported a successful deploy preview:
+<https://deploy-preview-7--sprightly-biscochitos-f0b9dc.netlify.app>.
+Its redirect-rule check passed; header/page-change checks were skipped by
+Netlify. This is hosting-reported deployment success, not a form submission or
+function-delivery verification.
+
+Temporary Gatsby servers were stopped, the validation worktree was removed with
+`git worktree remove --force` targeting only that isolated checkout, and the
+downloaded runtime and temporary comparison data were removed. The original
+repository's dependencies/cache/output were not removed.
+
 ## Known warnings
 
 1. npm emits `ERESOLVE overriding peer dependency` for Gatsby's experimental
@@ -253,8 +287,8 @@ verified a PR-only trigger, Node-version-file selection, `npm ci`, and
 ## Limits, blocked tasks, and operational notes
 
 - No local install/build blocker remains on the validated macOS arm64 runtime.
-- The new GitHub Actions workflow runs on Ubuntu; remote Linux execution must be
-  checked separately and is not inferred from macOS success.
+- The new GitHub Actions workflow passed its install/build job on Ubuntu, in
+  addition to the local macOS checks.
 - nvm commands, global npm selection, Intel macOS, and Rosetta were not tested.
 - Native-module recovery guidance was not validated by deliberately breaking
   native dependencies.

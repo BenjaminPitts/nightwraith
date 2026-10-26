@@ -24,10 +24,18 @@
     "gatsby"
   ],
   "license": "0BSD",
+  "engines": {
+    "node": "22.23.4",
+    "npm": "10.9.4"
+  },
   "scripts": {
     "build": "gatsby build",
+    "predev": "node -e \"require('node:fs').mkdirSync('.cache', { recursive: true })\"",
+    "dev": "gatsby develop",
+    "predevelop": "node -e \"require('node:fs').mkdirSync('.cache', { recursive: true })\"",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
+    "prestart": "node -e \"require('node:fs').mkdirSync('.cache', { recursive: true })\"",
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",

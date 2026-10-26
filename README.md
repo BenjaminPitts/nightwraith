@@ -134,15 +134,13 @@ framework upgrades require a separate review.
 
 ## Repository structure
 
-- [src/pages/](./src/pages/): homepage, Bio, Videos, Photos, Press, Contact, error
-  page, and existing starter page.
+- [src/pages/](./src/pages/): homepage, Bio, Videos, Photos, Press, Contact, contact
+  form return page, and custom error page.
 - [src/components/](./src/components/): shared layout, header, SEO, form, and CSS.
 - [src/images/](./src/images/): photography, artwork, logo, and social icons.
 - [src/api/](./src/api/): Gatsby metrics function.
-- [src/templates/](./src/templates/): existing deferred-generation template.
 - [gatsby-config.js](./gatsby-config.js): metadata, image, sitemap, and robots
   plugins.
-- [gatsby-node.js](./gatsby-node.js): programmatic page creation.
 - [public/](./public/): generated production output, ignored by Git.
 - [.cache/](./.cache/): Gatsby cache, ignored by Git.
 - [.github/workflows/](./.github/workflows/): pull-request install/build check.
@@ -167,8 +165,12 @@ generated functions with `netlify dev`. That workflow was not validated here.
 
 Verify actual form detection, receipt, notifications, and deployed function
 behavior on an approved Netlify deploy preview. A local Gatsby server does not
-prove Netlify Forms works. The existing form targets `/thanks/`, which currently
-has no page implementation; that pre-existing issue remains outside this phase.
+prove Netlify Forms works. The form returns to `/thanks/`, a noindex page that
+does not independently verify delivery or treat a direct visit as a submission.
+
+See [Netlify hosting contracts](./docs/NETLIFY-CONTRACTS.md) for verified source
+behavior, public deployment evidence, unknown dashboard settings, and the exact
+manual form/hosting checks required before a migration.
 
 ## Validation scope
 

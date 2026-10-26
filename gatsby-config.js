@@ -30,7 +30,12 @@ module.exports = {
         icon: `src/images/divergence-sm.jpg`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        excludes: [`/thanks/`],
+      },
+    },
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {

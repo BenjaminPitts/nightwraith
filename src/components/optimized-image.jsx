@@ -1,7 +1,16 @@
 import React from "react"
 import images from "../../.generated/images.json"
 
-export default function OptimizedImage({ src, width, alt, style, quality }) {
+export default function OptimizedImage({
+  src,
+  width,
+  alt,
+  style,
+  imageStyle,
+  quality,
+  className,
+  loading = "lazy",
+}) {
   const name = src.split("/").pop()
   const image = images[name]
   if (!image || image.width !== width || image.quality !== quality) {
@@ -12,6 +21,7 @@ export default function OptimizedImage({ src, width, alt, style, quality }) {
 
   return (
     <span
+      className={className}
       style={{
         position: "relative",
         overflow: "hidden",
@@ -31,9 +41,14 @@ export default function OptimizedImage({ src, width, alt, style, quality }) {
           width={image.width}
           height={image.height}
           alt={alt}
-          loading="lazy"
+          loading={loading}
           decoding="async"
-          style={{ display: "block", width: "100%", height: "auto" }}
+          style={{
+            display: "block",
+            width: "100%",
+            height: "auto",
+            ...imageStyle,
+          }}
         />
       </picture>
     </span>

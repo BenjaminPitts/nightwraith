@@ -20,7 +20,7 @@ test("all seven routes contain initial content and route-specific SEO", async ()
   for (const [route, title] of pages) {
     const html = await read(`${route}index.html`)
     assert.ok(html.includes(`<title>${title}</title>`), route)
-    assert.match(html, /<main>[\s\S]{100,}<\/main>/)
+    assert.match(html, /<main(?:\s[^>]*)?>[\s\S]{100,}<\/main>/)
     assert.match(html, /<meta name="description" content="[^"]+"/)
     assert.ok(
       html.includes(`rel="canonical" href="${siteMetadata.siteUrl}/${route}"`)

@@ -1,70 +1,77 @@
 import * as React from "react"
-
 import logoImage from "../images/NW-LOGO-2.png"
 
-const Header = () => {
-  const [logoLoaded, setLogoLoaded] = React.useState(false)
+const sectionLinks = [
+  ["Music", "music"],
+  ["Shows", "shows"],
+  ["Videos", "videos"],
+  ["Photos", "photos"],
+  ["About", "about"],
+  ["Merch", "merch"],
+  ["Press", "press"],
+]
+
+const pageLinks = [
+  ["Bio", "/bio/"],
+  ["Press", "/press/"],
+  ["Videos archive", "/videos/"],
+  ["Photo archive", "/photos/"],
+]
+
+const Header = ({ isHome = false }) => {
+  const [menuOpen, setMenuOpen] = React.useState(false)
 
   return (
-    <header>
-      <div className="header">
-        <a href="/" className="logo-link">
-          <img
-            src={logoImage}
-            id="top"
-            width={380}
-            height={228}
-            alt="NightWraith"
-            loading="eager"
-            decoding="sync"
-            onLoad={() => setLogoLoaded(true)}
-            onError={() => setLogoLoaded(true)}
-            style={{
-              margin: `1rem 0`,
-              display: `block`,
-              backgroundColor: `transparent`,
-              opacity: logoLoaded ? 1 : 0,
-              transition: `none`,
-            }}
-          />
+    <header className="site-header">
+      <div className="header-inner">
+        <a href="/" className="site-brand" aria-label="NightWraith home">
+          <img src={logoImage} width="1200" height="720" alt="NightWraith" />
         </a>
-
-        <div className="nav">
-          <a href="/bio/" className="link">
-            {" "}
-            Bio
-          </a>{" "}
-          |
-          <a href="/press/" className="link">
-            {" "}
-            Press
-          </a>{" "}
-          |
-          <a href="/videos/" className="link">
-            {" "}
-            Videos
-          </a>{" "}
-          |
-          <a href="/photos/" className="link">
-            {" "}
-            Photos
-          </a>{" "}
-          |
+        <button
+          className={`menu-toggle${menuOpen ? " is-open" : ""}`}
+          type="button"
+          aria-expanded={menuOpen}
+          aria-controls="site-navigation"
+          aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+          onClick={() => setMenuOpen(open => !open)}
+        >
+          <span />
+          <span />
+        </button>
+        <nav
+          className={`site-nav${menuOpen ? " is-open" : ""}`}
+          id="site-navigation"
+          aria-label="Main navigation"
+        >
+          <div className="nav-sections">
+            {sectionLinks.map(([label, section]) => (
+              <a
+                href={isHome ? `#${section}` : `/#${section}`}
+                key={section}
+                onClick={() => setMenuOpen(false)}
+              >
+                {label}
+              </a>
+            ))}
+          </div>
+          <div className="nav-pages">
+            {pageLinks.map(([label, href]) => (
+              <a href={href} key={href} onClick={() => setMenuOpen(false)}>
+                {label}
+              </a>
+            ))}
+            <a href="https://nightwraith.bandcamp.com/merch" target="_blank" rel="noreferrer" onClick={() => setMenuOpen(false)}>
+              Bandcamp store
+            </a>
+          </div>
           <a
-            href="https://nightwraith.bandcamp.com/merch"
-            className="link"
-            target="_blank"
-            rel="noreferrer"
+            className="nav-contact"
+            href={isHome ? "#contact" : "/contact/"}
+            onClick={() => setMenuOpen(false)}
           >
-            {" "}
-            Merch
-          </a>{" "}
-          |
-          <a href="/contact/" className="link">
-            {" "}
             Contact
           </a>
-        </div>
+        </nav>
       </div>
     </header>
   )

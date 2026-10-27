@@ -8,12 +8,16 @@
     "quality": 60
   },
   "full-band-oriental2.jpg": {
-    "width": 500,
-    "quality": 60
+    "width": 1800,
+    "quality": 82
+  },
+  "divergence-sm.jpg": {
+    "width": 1000,
+    "quality": 85
   },
   "full-band-oriental3.jpg": {
-    "width": 300,
-    "quality": 95
+    "width": 1000,
+    "quality": 85
   },
   "hug.jpg": {
     "width": 300,
@@ -96,8 +100,8 @@
     "quality": 95
   },
   "live1.jpg": {
-    "width": 300,
-    "quality": 95
+    "width": 900,
+    "quality": 85
   },
   "spy.jpg": {
     "width": 300,

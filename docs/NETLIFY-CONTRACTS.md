@@ -72,9 +72,18 @@ Before deploying this migration, inspect:
    selection; compare it with `NODE_VERSION` and other scoped overrides.
    The official Node archive used here bundles npm 10.9.9, so explicit npm
    selection matters.
-3. **Remove/disable any dashboard-installed Essential Gatsby plugin** for this
-   deployment. Gatsby Functions/DSG packaging is no longer needed; native
-   functions must remain enabled.
+3. **Keep the dashboard-installed Essential Gatsby plugin while `main` still
+  uses Gatsby.** UI-installed plugins run in all deploy contexts; removing it
+  would also affect production. This branch's `netlify.toml` sets
+  `NETLIFY_SKIP_GATSBY_BUILD_PLUGIN = "true"` only under
+  `[context.deploy-preview.environment]`. Plugin 3.8.4 explicitly checks this
+  flag before its build lifecycle work, including the image-CDN cache write.
+  This skips Gatsby work for deploy previews using this configuration, not
+  production or branch deploys; native Netlify Functions remain enabled.
+  Confirm the resolved preview environment and successful post-build steps in
+  the next Netlify log. A local `npm run build` does not run Netlify plugins.
+  See [Netlify plugin context rules](https://docs.netlify.com/extend/install-and-use/build-plugins/#configure-by-deploy-context)
+  and the [3.8.4 skip guard](https://unpkg.com/@netlify/plugin-gatsby@3.8.4/lib/helpers/config.js).
 4. Existing dashboard redirects/headers, domain aliases, slash normalization,
    build cache, framework autodetection, and install flags. Do not retain an
    unrelated SPA fallback that turns missing URLs into homepage HTTP 200.

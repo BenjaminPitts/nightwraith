@@ -7,6 +7,9 @@
   NODE_VERSION = "22.23.4"
   NPM_VERSION = "10.9.4"
 
+[context.deploy-preview.environment]
+  NETLIFY_SKIP_GATSBY_BUILD_PLUGIN = "true"
+
 [functions]
   node_bundler = "esbuild"
 

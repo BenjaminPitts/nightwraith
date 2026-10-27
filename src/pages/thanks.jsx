@@ -1,5 +1,4 @@
 import * as React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -17,9 +16,9 @@ const ThanksPage = () => (
     </p>
     <p>
       If you are unsure whether your submission completed, please use the email
-      address on our <Link to="/contact/">contact page</Link>.
+      address on our <a href="/contact/">contact page</a>.
     </p>
-    <Link to="/">Back to Homepage</Link>
+    <a href="/">Back to Homepage</a>
   </Layout>
 )
 

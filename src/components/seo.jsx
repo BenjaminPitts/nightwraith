@@ -1,13 +1,6 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import * as React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { siteMetadata } from "../site"
 
 function Seo({
   description,
@@ -17,22 +10,6 @@ function Seo({
   structuredData,
   children,
 }) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-            siteUrl
-          }
-        }
-      }
-    `
-  )
-
-  const siteMetadata = site.siteMetadata
   const metaDescription = description || siteMetadata.description
   const defaultTitle = siteMetadata?.title
   const resolvedTitle =
@@ -66,9 +43,12 @@ function Seo({
       <meta name="twitter:creator" content={siteMetadata?.author || ""} />
 
       {structuredData ? (
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+          }}
+        />
       ) : null}
 
       {children}

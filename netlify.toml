@@ -1,0 +1,17 @@
+[build]
+  command = "npm run build"
+  publish = "dist/client"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "22.23.4"
+  NPM_VERSION = "10.9.4"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/sendMetric"
+  to = "/.netlify/functions/sendMetric"
+  status = 200
+  force = true

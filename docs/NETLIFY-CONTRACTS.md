@@ -1,303 +1,268 @@
 # NightWraith Netlify hosting contracts
 
-Inspected October 26, 2026 on local `2026-facelift`, starting from Phase 1 commit
-`2d046a1`. This document describes the existing Gatsby site and Phase 2 cleanup,
-not a new deployment configuration. No remote settings were changed.
+Updated for Phase 3 on local `2026-facelift`, from Phase 2 commit `5f849ca`.
+The architecture is now Vite + React with Vike static prerendering, not Gatsby.
+No remote settings, deploys, branches, commits, or pull requests were changed.
 
 ## Evidence categories
 
-- **Verified from repository code:** declarations and source behavior visible in
-  the local tree.
-- **Verified by local tests:** generated HTML/artifacts or read-only HTTP checks
-  from a local production preview.
-- **Verified from accessible Netlify deployment evidence:** public GET responses.
-  These concern already-deployed versions, not the uncommitted Phase 2 changes.
-- **Unknown / requires manual Netlify dashboard verification:** private build,
-  form, runtime, integration, or delivery settings not established by those tests.
-- Official platform documentation describes supported behavior; it does not prove
-  which options this particular site has configured.
+- **Verified from repository code:** declarations in this working tree.
+- **Verified by local tests:** generated artifacts, local HTTP/browser tests,
+  mocked UDP tests, and native Netlify function ZIP packaging.
+- **Verified from accessible Netlify deployment evidence:** historical public GET
+  observations recorded during Phase 2, explicitly not this migration.
+- **Unknown / requires manual Netlify dashboard verification:** live build
+  overrides, plugins, form acceptance, notifications, routing, and ingestion.
 
-## Build, framework detection, and runtime
+A successful static build or function ZIP is not proof of deployed integration.
+Do not record secret environment-variable or ingestion configuration values.
+
+## Build, runtime, and deployment
 
 ### Verified from repository code
 
-- [package.json](../package.json): Gatsby 4, React 18, `npm run build` executes
-  `gatsby build`; `npm run dev` executes `gatsby develop`; `npm run serve`
-  executes `gatsby serve`.
-- [.nvmrc](../.nvmrc): Node `22.23.4`.
-- Package engines: Node `22.23.4`, npm `10.9.4`, advisory rather than strict.
-- [package-lock.json](../package-lock.json): npm lockfile v3.
-- [.github/workflows/build.yml](../.github/workflows/build.yml): PR-only
-  install/build checks using `.nvmrc`, npm 10.9.4, `npm ci`, `npm run build`.
-  This is GitHub CI, not a Netlify deployment configuration.
-- No committed `netlify.toml`, `_redirects`, `_headers`, Netlify functions
-  directory, or explicit Netlify build-plugin configuration.
-- No explicit `gatsby-plugin-netlify` or `@netlify/plugin-gatsby` dependency.
-- No Gatsby redirect generation or application environment-variable reads.
-- The removed `gatsby-node.js` contained only the unwanted DSG demo registration.
+[netlify.toml](../netlify.toml) explicitly declares:
+
+| Setting | Contract |
+|---|---|
+| Build command | `npm run build` |
+| Publish directory | `dist/client` |
+| Function directory | `netlify/functions` |
+| Function bundler | `esbuild` |
+| Build Node | `22.23.4` |
+| Build npm | `10.9.4` |
+| API rewrite | `/api/sendMetric` -> `/.netlify/functions/sendMetric`, forced HTTP 200 rewrite |
+
+The 200 rewrite is an internal proxy rule, not a guarantee of a 200 function
+response. Handler errors still return their own status codes.
+
+[package.json](../package.json) and the regenerated npm v3 lockfile replace Gatsby
+with Vite, Vike, the React plugin, and current Sharp. React remains 18.3.1 in the
+lockfile. [.nvmrc](../.nvmrc) is unchanged. Advisory package engines match.
+
+`npm run build` generates images/icons/manifest/sitemap/robots, builds Vike, and
+copies the prerendered custom error page to `dist/client/404.html`.
+`dist/server` is a build intermediate and is **not** the publish directory.
+Each route has real static HTML; no production SSR adapter or SPA fallback is
+required. Existing GitHub PR CI still runs `npm ci` and `npm run build`.
+
+No `_headers`, catch-all rewrite, environment-dependent page rendering, or new
+build plugin is introduced. Existing Gatsby configuration and API conventions
+are removed only after replacements are implemented.
 
 ### Verified by local tests
 
-- Node 22.23.4/npm 10.9.4 build the site with the installed locked dependency set.
-- Build output is `public/`; static pages include route-specific initial HTML.
-- Both baseline and Phase 2 builds compile Gatsby Functions.
-- Tests use disposable filesystem snapshots of the local source and dependency
-  tree so the user's running development server/cache are not disturbed. No
-  branch creation/switching, staging, or fresh dependency installation is needed.
-- A production build is not proof of Netlify form processing, notification
-  delivery, function packaging, or metric ingestion.
+- Clean installation and cold production build on Node 22.23.4/npm 10.9.4, arm64.
+- Eight route documents: seven site/return pages plus `/404/`; root `404.html`
+  is an additional copy for static hosting.
+- Local development and production preview serve all seven routes.
+- Retired starter URLs and unknown routes return custom 404 content/status.
+- The native function is packaged successfully with Netlify's
+  `@netlify/zip-it-and-ship-it` using esbuild, installed only in temporary test
+  tooling, not as a website dependency.
+- No Gatsby package remains in the lockfile.
 
-### Framework and version detection: documented Netlify behavior
+### Unknown / requires manual Netlify dashboard verification
 
-Netlify detects Gatsby from a linked repository and suggests `gatsby build` and
-`public`. For Gatsby versions before 5.12, its Essential Gatsby build plugin is
-the documented integration for Gatsby Functions and SSR/DSG.
+Before deploying this migration, inspect:
 
-The site's actual build command/base/publish settings and plugin installation
-must still be checked in the dashboard and logs. Absence of a repository plugin
-declaration does not establish absence of a dashboard-installed plugin.
+1. Linked repository/branch, base/package directories, context-specific build
+   overrides, and actual `dist/client` publish path.
+2. Node/npm selected in build logs. `.nvmrc` can affect Netlify's runtime
+   selection; compare it with `NODE_VERSION` and other scoped overrides.
+   The official Node archive used here bundles npm 10.9.9, so explicit npm
+   selection matters.
+3. **Remove/disable any dashboard-installed Essential Gatsby plugin** for this
+   deployment. Gatsby Functions/DSG packaging is no longer needed; native
+   functions must remain enabled.
+4. Existing dashboard redirects/headers, domain aliases, slash normalization,
+   build cache, framework autodetection, and install flags. Do not retain an
+   unrelated SPA fallback that turns missing URLs into homepage HTTP 200.
+5. Actual function inventory, runtime, permissions, timeouts, outbound UDP
+   behavior, and whether account-level settings interfere with the API rewrite.
 
-Netlify's dependency documentation says `.nvmrc` in the build base directory can
-override the dashboard's Node selection. Thus the Phase 1 pin is **not guaranteed
-to be local-only**. Check any `NODE_VERSION` setting, `.node-version`, base
-directory, and the version actually selected in deploy logs; do not infer
-precedence between conflicting overrides without inspecting the build.
-
-npm ordinarily defaults to the version bundled with Node unless `NPM_VERSION`
-or other explicit tooling selection changes it. Package engines and the GitHub
-Actions npm selection do not prove Netlify uses npm 10.9.4. The official Node
-22.23.4 archive fetched in Phase 2 bundled npm 10.9.9, so testing selected npm
-10.9.4 separately. Verify Netlify's effective npm version and install command;
-do not assume its installer runs `npm ci` because GitHub CI does.
-
-No `netlify.toml` is added: the dashboard settings are unknown, and an apparently
-harmless file could override existing build/context/plugin behavior.
+Repository configuration is explicit now, but inaccessible dashboard/context
+settings have not been assumed or edited. No speculative override of the
+production function runtime is included.
 
 ## Contact form and return route
 
 ### Verified from repository code
 
-[src/components/form.js](../src/components/form.js) is unchanged:
+[src/components/form.jsx](../src/components/form.jsx) preserves:
 
 | Contract | Value |
 |---|---|
 | Form name | `contact` |
-| Submission | Native browser POST; no custom AJAX handler |
+| Submission | Native browser POST, default URL-encoded fields |
 | Action | `/thanks/` on the current origin |
-| Encoding | Native default URL-encoded fields; no file upload |
 | Detection | `data-netlify="true"` |
-| Honeypot declaration | `netlify-honeypot="bot-field"` |
-| Hidden fields | `bot-field`, `form-name=contact` |
+| Honeypot declaration/field | `netlify-honeypot="bot-field"` / hidden `bot-field` |
+| Hidden form identity | `form-name=contact` |
 | User fields | `name`, `email`, `message` |
 
-The existing misspelled `netifly` attribute is not the detection mechanism and is
-left untouched; the correct `data-netlify` attribute is present. Existing lack
-of explicit labels/required-field validation is not changed in this phase.
+The existing misspelled `netifly` prop is not Netlify detection; the correct
+attributes remain. No AJAX handler, field rename, validation change, or new spam
+protection was introduced. The full form is prerendered into
+`dist/client/contact/index.html`, so detection does not depend on hydration.
 
-[src/pages/thanks.js](../src/pages/thanks.js) provides a static return destination,
-uses the existing layout/SEO helper, and includes homepage/contact links.
-It is `noindex, nofollow` and explicitly excluded from the sitemap. Its canonical
-is `https://nightwraithband.com/thanks/`.
+[src/pages/thanks.jsx](../src/pages/thanks.jsx) retains the existing layout,
+conditional confirmation wording, homepage/contact links, self-canonical URL,
+and `noindex, nofollow`. It is excluded from the sitemap.
 
-A static GET page cannot authenticate a successful Netlify POST redirect versus
-a bookmark/direct visit. The page therefore thanks users **conditionally** after
-a successful submission and explicitly says it cannot verify delivery. It does
-not claim a message was received. No referrer, query parameter, or local-storage
-flag is treated as proof; no submission-handler change was needed.
+A static GET cannot authenticate successful form delivery versus a bookmark.
+The page does not claim receipt and does not use a query flag/referrer as proof.
+Its existence is not proof Netlify accepted a POST.
 
 ### Verified by local tests
 
-- Static contact HTML retains the form declaration, action, method, honeypot,
-  and every field.
-- `/thanks/` is generated, serves HTML, and contains its noindex/canonical data,
-  conditional copy, and links.
-- Baseline and final contact form contracts match.
-- Tests did not POST any form or claim actual receipt.
+Generated contact attributes/fields match the Gatsby baseline exactly.
+Return-page copy, SEO, links, and initial HTML also match. No form was submitted.
+Vite/Vike preview does not provide Netlify Forms processing.
 
-### Verified from accessible Netlify deployment evidence
+### Exact manual deploy-preview acceptance test
 
-Read-only GET requests on October 26, 2026:
+After the owner deploys through their normal workflow:
+
+1. Confirm preview commit/context, build settings, static output, and form
+   detection enabled in the dashboard.
+2. Confirm `contact` is recognized with the existing fields; identify where
+   preview submissions and notifications are recorded.
+3. GET `/thanks/` directly: no false claim that a message was received.
+4. Open preview `/contact/`. Enter an owner-approved test name/email and unique
+   `Phase 3 preview verification <timestamp>` marker; leave the honeypot blank.
+5. Submit once. Inspect the native POST to preview `/thanks/`, URL-encoded
+   `form-name=contact` and user fields, response/redirect chain, and return page.
+   Record actual statuses instead of assuming a particular redirect status.
+6. Confirm the marker appears as an accepted submission, not only spam.
+   Independently verify notifications if configured.
+7. Check direct return-page access, keyboard/homepage links, and failure/offline
+   behavior. A static-page GET is not a substitute for confirmed receipt.
+
+Do not run this against production without explicit approval.
+
+## Metrics endpoint
+
+### Verified from repository code
+
+[netlify/functions/sendMetric.mjs](../netlify/functions/sendMetric.mjs) replaces
+the Gatsby `src/api` handler. Its native Netlify event adapter accepts the same
+POST JSON payload and preserves the internal ingestion implementation.
+
+- Public route: `/api/sendMetric` via the exact rewrite in
+  [netlify.toml](../netlify.toml); no broad API or SPA rewrite.
+- Payload: `{ "metricName": "<existing name>" }`.
+- Page effects still send `indexpage.load`, `bio`, `photos`, `press`, `contact`.
+  Videos still does not emit a page-load metric.
+- Existing StatsD counter format, UDP4, host `statsd.hostedgraphite.com`, and
+  port 8125 are unchanged.
+- Existing server-only ingestion configuration remains in the function; no
+  credential value is printed here, copied to frontend configuration, or added
+  to documentation. No new application environment-variable requirement.
+- Missing metric: 400; non-POST: 405; UDP callback failure: 500; callback success:
+  200, with existing JSON conventions.
+- The adapter also handles Netlify base64 request bodies and explicitly rejects
+  malformed JSON with 400.
+- UDP callback success is not a Hosted Graphite ingestion acknowledgement.
+
+### Verified by local tests
+
+- Five Node tests mock `dgram.createSocket`; success, callback failure, methods,
+  missing input, malformed JSON, and base64 handling are covered. No UDP packet
+  is sent.
+- Native function ZIP packaging succeeds with Netlify's packaging library.
+- Baseline ingestion template matches the server function. Its private prefix
+  is absent from every file in `dist/client`.
+- The existing React page effects retain their metric names.
+
+Development/preview intentionally return explicit 503 JSON at `/api/sendMetric`
+through [vite.config.mjs](../vite.config.mjs). No ingestion runs locally. This is
+a documented development-only safety boundary, not a fake successful metric.
+The existing browser effects log the explanatory response. Vite preview alone
+cannot prove Netlify routing works.
+
+### Manual integration verification
+
+First use a safe GET on the approved preview: `/api/sendMetric` must return 405
+with the existing JSON message, not HTML or a missing function.
+Inspect native function inventory/logs and rewrite ordering.
+
+Actual POST/ingestion testing requires an owner-approved non-production
+destination/series and explicit approval. Verify HTTP status and remote
+ingestion separately. Do not emit production counters merely to test routing.
+Netlify Dev/CLI execution was not validated and can run the real function.
+
+## Routes, metadata, assets, and retirement
+
+### Verified from repository code and local tests
+
+- Canonical origin remains `https://nightwraithband.com`.
+- `/`, `/bio/`, `/videos/`, `/photos/`, `/press/`, `/contact/`, `/thanks/` all
+  have route-specific initial HTML. No single-index fallback masquerades as SSG.
+- Titles/descriptions, canonicals, social metadata, MusicGroup JSON-LD, visible
+  page text, links, navigation destinations, form contracts, and iframe
+  attributes match the fresh Phase 2 Gatsby build.
+- [src/site.js](../src/site.js) supplies metadata and six sitemap routes;
+  [src/components/seo.jsx](../src/components/seo.jsx) renders existing metadata.
+  JSON-LD uses safe raw script serialization so it remains valid JSON.
+- [scripts/generate-assets.mjs](../scripts/generate-assets.mjs) emits
+  `/sitemap/sitemap-index.xml`, `/sitemap/sitemap-0.xml`, and `/robots.txt`.
+  Exactly six canonical URLs appear; return/error/API/starter URLs do not.
+  Robots output matches the Gatsby baseline byte for byte.
+- Existing CSS and source images remain unchanged. Responsive AVIF/WebP and
+  JPEG/PNG assets replace Gatsby transforms; the 30 image sources generate
+  360 variants totaling about 10.54 MB, largest about 250 KB. The original
+  high-resolution photos are retained but not published.
+- Iframe URLs/attributes remain unchanged. Their raw-text fallback markup is
+  serialized without React child hydration mismatches. Image wrappers use
+  inline spans to remain valid inside footer paragraphs.
+- The favicon/manifest use the existing artwork and display settings, with new
+  deterministic asset filenames. No service worker is introduced.
+- Navigation uses ordinary page links. **Persistent cross-page playback is not
+  implemented in Phase 3**; a later single-page section architecture is still
+  required. This supersedes Phase 2's aspirational migration checklist wording.
+
+The retired starter routes have no meaningful replacement. A real 404 remains
+appropriate even if indexed; 410 would require a separately approved explicit
+hosting rule. Do not redirect them to unrelated homepage content.
+After deploying, check slash and non-slash variants of retired/unknown URLs for
+real 404 status and custom content, not stale cached pages.
+
+## Historical public deployment evidence
+
+Phase 2 recorded read-only GETs on October 26, 2026:
 
 | Origin | `/contact/` | `/thanks/` | `/api/sendMetric` GET |
 |---|---|---|---|
 | `https://nightwraithband.com` | 200 | 404 | 405 JSON |
 | `https://deploy-preview-7--sprightly-biscochitos-f0b9dc.netlify.app` | 200 | 404 | 405 JSON |
 
-Both origins report `Server: Netlify`. The contact HTML retains the form name,
-POST action, hidden form-name and honeypot fields; the detection attribute is
-absent from deployed markup, consistent with Netlify processing. This does
-**not** establish that form detection is currently enabled, submissions are
-accepted, spam checks allow a message, or email notifications arrive.
+Both reported `Server: Netlify`. Contact HTML was consistent with Netlify's form
+post-processing. These observations concern older deploys and do not establish
+current form receipt, dashboard settings, Phase 2 deployment status, or Phase 3
+deployment success. No new remote deployment evidence is claimed here.
 
-The preview is historical Phase 1 evidence, not a Phase 2 deployment. Phase 2
-has not been pushed or deployed by this work.
+## Owner's deployment acceptance checklist
 
-### Unknown / requires manual Netlify dashboard verification
-
-- Whether form detection is enabled for relevant deploy contexts.
-- Whether Netlify lists `contact` with the expected fields.
-- Submission/spam status, quotas, notification configuration, and recipients.
-- Preview-specific form availability and isolation from production records.
-
-### Exact manual deploy-preview acceptance test
-
-After the owner deploys the reviewed changes through their normal workflow:
-
-1. In Netlify, verify the preview commit/context and effective build settings.
-2. Verify form detection is enabled and `contact` is recognized with the same
-   fields. Confirm where preview submissions/notifications are recorded.
-3. GET `/thanks/` directly: it must render without claiming a message was sent.
-4. Open `/contact/` on that preview origin. Use an owner-approved test name and
-   email, a unique marker such as `Phase 2 preview verification <timestamp>`,
-   and leave the honeypot blank. This is a deliberate manual integration test,
-   not an automated production submission.
-5. Submit once. In browser Network, verify a native POST to preview `/thanks/`,
-   URL-encoded payload containing `form-name=contact` and expected fields, no
-   error response, and the resulting confirmation page. Record the observed
-   response/redirect chain rather than assuming a particular status code.
-6. Confirm the unique marker exists in Netlify Forms under the correct form and
-   is not only classified as spam. Separately verify notifications if configured.
-7. Check direct navigation, keyboard/homepage link behavior, noindex metadata,
-   and an offline/failure attempt that must not be reported as a successful send.
-8. A confirmation-page GET or successful static build alone is a failed
-   substitute for steps 5-6. If receipt is missing, investigate Netlify processing
-   before changing field names or replacing the integration.
-
-Do not perform this test against live production without explicit owner approval.
-
-## Metrics endpoint
-
-### Verified from repository code
-
-[src/api/sendMetric.js](../src/api/sendMetric.js) remains unchanged:
-
-- Gatsby Function at `/api/sendMetric`.
-- POST JSON `{ "metricName": "<existing name>" }`.
-- Names currently sent by page effects: `indexpage.load`, `bio`, `photos`,
-  `press`, `contact`. Videos does not send an equivalent page-load metric.
-- Sends a StatsD counter using Node `dgram`, UDP4, port 8125,
-  `statsd.hostedgraphite.com`.
-- Server-side ingestion configuration is embedded in the function; no value is
-  reproduced here. No application `process.env` dependency is declared.
-- Statuses: missing metric 400, send callback failure 500, callback success 200,
-  non-POST 405. A successful UDP callback is not remote ingestion acknowledgement.
-
-### Verified by local tests
-
-- The source matches the Phase 1 baseline byte for byte.
-- Build output contains the compiled function and Gatsby function manifest entry.
-- Test clients do not execute page JavaScript or request this function. No POST
-  was sent and no UDP send path was invoked intentionally during validation.
-
-### Verified from accessible Netlify deployment evidence
-
-Both public origins above return GET 405 with:
-
-```json
-{"status":"error","message":"Method not allowed"}
-```
-
-This matches the handler's non-POST branch and establishes an accessible deployed
-API route. It does not identify the exact plugin version/rewrites or prove POST
-delivery.
-
-### Unknown / requires manual Netlify dashboard verification
-
-- Essential Gatsby plugin/version, generated function inventory, and API rewrite.
-- Deployed Node function runtime, which need not equal the build runtime.
-- Outbound UDP restrictions, actual ingestion, monitoring, and timeout behavior.
-- Any private deployment environment overrides (record names/scopes, not values).
-
-Netlify documents generated `__api` packaging for Gatsby Functions. This is the
-likely integration, not a confirmed site-specific inventory. Do not remove the
-Essential Gatsby integration just because DSG demo generation is removed:
-the metrics function still requires supported hosting.
-
-To verify metrics later, use an owner-approved non-production destination/series,
-inspect request/status behavior and ingestion separately, and do not generate
-production counters merely to test routing.
-
-## Routing, headers, SEO, and starter retirement
-
-### Verified from repository code
-
-- Canonical origin remains `https://nightwraithband.com`.
-- Legitimate URLs remain `/`, `/bio/`, `/videos/`, `/photos/`, `/press/`,
-  `/contact/`; existing custom 404 source is unchanged.
-- [src/components/seo.js](../src/components/seo.js) supplies route metadata,
-  canonical links, social metadata, and optional JSON-LD.
-- Homepage MusicGroup schema is unchanged.
-- [gatsby-config.js](../gatsby-config.js) still uses `gatsby-plugin-sitemap`
-  and `gatsby-plugin-robots-txt`.
-- Sitemap remains `/sitemap/sitemap-index.xml` plus sitemap shards.
-- The new non-indexable `/thanks/` is excluded. Removed starter pages no longer
-  enter Gatsby's page graph, so no redundant filter or broad redirect is needed.
-- Robots still allows crawling and advertises the same sitemap and host.
-- No custom hosting redirects or headers are declared in the repository.
-
-### Verified by local tests
-
-- Six legitimate pages and custom 404 retain baseline metadata, structured data,
-  embeds, header/navigation, links, main text, and form markup.
-- Sitemap contains exactly the six legitimate canonical URLs; no `/thanks/`,
-  `/using-typescript`, `/using-dsg`, error page, or API entry.
-- Removed starter HTML/page-data artifacts are absent after a cold build.
-- Production preview returns custom 404 content for removed and unknown routes.
-- Robots output is unchanged.
-
-### Retirement policy
-
-The TypeScript demo and DSG demo have no meaningful replacement. A genuine 404
-is appropriate even if indexed: search engines can eventually remove the URLs.
-A 410 is also appropriate for deliberate permanent removal, but requires an
-explicit verified hosting rule and is not necessary here. Do not redirect either
-demo to an unrelated homepage or serve a 200 fallback. Check Search Console for
-indexing/backlinks if available; optionally request removal through the owner's
-normal SEO workflow. Keep real pages self-canonical and indexable.
-
-After the next deploy, confirm both slash variants of each retired path return
-404 (or an explicitly approved future 410) rather than stale cached content.
-
-## Unknown hosting settings checklist
-
-Have the owner inspect, without sharing secret values:
-
-- Repository/production branch, base/package/publish directories, build command.
-- Build image, selected Node/npm versions, install command/flags, cache policy.
-- Build-plugin inventory and logs, generated API functions, redirect ordering.
-- Dashboard-managed redirects/headers, domain aliases, HTTPS/trailing-slash rules.
-- Form detection, quotas, submission/spam and notification settings.
-- Environment-variable names, scopes and deploy contexts, including any
-  `NODE_VERSION`, `NPM_VERSION`, `NPM_FLAGS`, `NETLIFY_SKIP_GATSBY_FUNCTIONS`,
-  or `NETLIFY_SKIP_API_FUNCTION` settings.
-- Function runtime/limits and deploy-preview indexing controls.
-
-No secret values should be printed or stored in repository documentation.
-
-## Acceptance contracts for a future Gatsby-to-Vite migration
-
-1. Prerender meaningful route-specific HTML for all six legitimate URLs; preserve
-   initial titles/descriptions, canonicals, MusicGroup JSON-LD and social metadata.
-2. Preserve URL normalization, real 404 behavior, robots/sitemap locations and
-   crawlable links. Exclude return/error/API/starter URLs from the sitemap.
-3. Keep the form name, POST encoding, fields, honeypot and `/thanks/` behavior;
-   include detectable form HTML in the published output, not only client JS.
-4. Preserve `/api/sendMetric`, payload/status conventions, current metric names
-   and approved ingestion behavior through a native Netlify function/rewrite.
-   Never assume Vite serves Gatsby's `src/api` convention.
-5. Preserve public embed URLs and ensure navigation does not remount players.
-6. Replace Gatsby image transforms/manifest behavior intentionally; do not ship
-   full-size photography as an accidental migration shortcut.
-7. Verify new build/publish directories and provider plugins against recorded
-   dashboard settings before changing them. Do not remove API packaging together
-   with now-unused DSG packaging.
-8. Repeat local contract comparisons and owner-approved deploy-preview tests.
-   Test forms and ingestion as separate integrations, not proxies for build health.
+- Correct preview commit/context, `npm run build`, `dist/client`, native
+  functions, intended Node/npm, no stale Gatsby plugin.
+- Seven routes contain meaningful HTML before JS; navigation, assets, mobile
+  display, external players, and custom 404 work.
+- Retired routes return 404; no broad SPA fallback.
+- Titles/descriptions/canonicals/social tags/schema remain correct.
+- Sitemap has exactly six canonical pages; thanks is noindex.
+- Contact is detected and the deliberate preview submission/notification test
+  passes independently of the return-page GET.
+- API GET returns 405 JSON; any ingestion check is separately approved and
+  non-production.
+- Dashboard-managed redirects/headers, domain configuration, runtime limits,
+  environment-variable names/scopes, and notifications are reviewed without
+  copying secret values.
 
 ## References
 
-Retrieved October 26, 2026:
-
-- [Netlify Gatsby integration](https://docs.netlify.com/build/frameworks/framework-setup-guides/gatsby/)
-- [Netlify dependency/runtime selection](https://docs.netlify.com/build/configure-builds/manage-dependencies/)
-- [Netlify Forms setup/detection](https://docs.netlify.com/manage/forms/setup/)
+- [Vike prerendering](https://vike.dev/prerender)
+- [Netlify build configuration](https://docs.netlify.com/build/configure-builds/file-based-configuration/)
+- [Netlify runtime selection](https://docs.netlify.com/build/configure-builds/manage-dependencies/)
+- [Netlify Forms](https://docs.netlify.com/manage/forms/setup/)
+- [Netlify Functions](https://docs.netlify.com/build/functions/overview/)

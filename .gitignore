@@ -54,9 +54,14 @@ typings/
 # dotenv environment variable files
 .env*
 
-# gatsby files
+# Legacy Gatsby output (not used by Vite)
 .cache/
 public
+
+# Generated Vite assets and prerendered output
+.generated/
+dist/
+.netlify/
 
 # Mac files
 .DS_Store

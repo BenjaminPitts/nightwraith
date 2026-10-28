@@ -46,6 +46,16 @@ test("all seven routes contain initial content and route-specific SEO", async ()
   assert.match(await read("thanks/index.html"), /content="noindex, nofollow"/)
 })
 
+test("Shows prerenders only an empty widget host and persistent fallback links", async () => {
+  const html = await read("index.html")
+  const shows = html.match(/<section[^>]*id="shows"[\s\S]*?<\/section>/)[0]
+  assert.match(shows, /class="shows-widget"[^>]*role="region"[^>]*tabindex="0"/)
+  assert.match(shows, /<div><\/div>/)
+  assert.match(shows, /href="https:\/\/www.bandsintown.com\/a\/15563342-nightwraith"/)
+  assert.match(shows, /href="\/contact\/">Booking inquiries<\/a>/)
+  assert.doesNotMatch(html, /bit-widget-initializer|bit-widget-container|widgetv3\.bandsintown\.com\/main\.min\.js/)
+})
+
 test("Netlify can detect the unchanged contact form before hydration", async () => {
   const html = await read("contact/index.html")
   const form = html.match(/<form\b[\s\S]*?<\/form>/)[0]
@@ -98,6 +108,29 @@ test("all initial local asset references resolve to published files", async () =
       const file = new URL(`.${url.split("?")[0]}`, output)
       const info = await stat(file)
       if (info.isDirectory()) await stat(new URL("index.html", file))
+    }
+  }
+})
+
+test("registered photo sources exist and gallery sections match image dimensions", async () => {
+  const settings = JSON.parse(
+    await readFile(new URL("../scripts/image-settings.json", import.meta.url), "utf8")
+  )
+  for (const name of Object.keys(settings)) {
+    await stat(new URL(`../src/images/${name}`, import.meta.url))
+  }
+  const html = await read("photos/index.html")
+  for (const orientation of ["landscape", "portrait"]) {
+    const section = html.match(
+      new RegExp(`<section[^>]*aria-labelledby="${orientation}s-heading"[\\s\\S]*?<\\/section>`)
+    )[0]
+    const images = [...section.matchAll(/<img\b[^>]*width="(\d+)" height="(\d+)"/g)]
+    assert.ok(images.length > 0, orientation)
+    for (const [, width, height] of images) {
+      assert.ok(
+        orientation === "landscape" ? Number(width) > Number(height) : Number(height) > Number(width),
+        `${orientation}: ${width}x${height}`
+      )
     }
   }
 })

@@ -1,15 +1,16 @@
 import OptimizedImage from "./optimized-image"
 import Layout from "./layout"
 import YouTubeVideo, { featuredVideos } from "./youtube-video"
+import BandsintownShows from "./bandsintown-shows"
 
 // Change these three entries to choose the homepage photos; orientation follows source dimensions.
 const photoPreviews = [
   {
-    src: "../images/full-band-oriental3.jpg",
-    width: 1000,
-    quality: 85,
+    src: "../images/full-band-oriental.jpg",
+    width: 300,
+    quality: 95,
     orientation: "landscape",
-    alt: "NightWraith band portrait",
+    alt: "NightWraith performing live onstage",
   },
   {
     src: "../images/lauren-oriental.jpg",
@@ -84,10 +85,10 @@ const HomePage = () => (
       <section className="hero" aria-labelledby="hero-title">
         <OptimizedImage
           className="hero-photo"
-          src="../images/full-band-oriental2.jpg"
+          src="../images/nw-agr-promo.png"
           width={1800}
-          quality={82}
-          alt="NightWraith performing live onstage"
+          quality={85}
+          alt="Black-and-white NightWraith band portrait in a room covered with signatures"
           loading="eager"
           imageStyle={{ height: "100%", objectFit: "cover" }}
           style={{
@@ -155,12 +156,7 @@ const HomePage = () => (
         <div className="section-heading">
           <h2>Shows</h2>
         </div>
-        <div className="shows-empty">
-          <p>No dates listed here yet.</p>
-          <a className="text-link" href="/contact/">
-            Booking inquiries
-          </a>
-        </div>
+        <BandsintownShows />
       </section>
 
       <section className="home-section video-section" id="videos">

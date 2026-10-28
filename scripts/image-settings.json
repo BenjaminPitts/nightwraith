@@ -1,4 +1,12 @@
 {
+  "tirenan-test-promo.JPEG": {
+    "width": 900,
+    "quality": 85
+  },
+  "nw-agr-promo.png": {
+    "width": 1800,
+    "quality": 85
+  },
   "blurry-band-bw.JPEG": {
     "width": 500,
     "quality": 80
@@ -12,10 +20,6 @@
     "quality": 82
   },
   "divergence-sm.jpg": {
-    "width": 1000,
-    "quality": 85
-  },
-  "full-band-oriental3.jpg": {
     "width": 1000,
     "quality": 85
   },
@@ -67,15 +71,7 @@
     "width": 300,
     "quality": 95
   },
-  "igor-hidive2.jpg": {
-    "width": 300,
-    "quality": 95
-  },
   "hidive.jpg": {
-    "width": 300,
-    "quality": 95
-  },
-  "caleb-hidive.jpg": {
     "width": 300,
     "quality": 95
   },
@@ -111,16 +107,44 @@
     "width": 300,
     "quality": 95
   },
-  "fb.png": {
-    "width": 40,
-    "quality": 100
+  "ben-and-igor-slo.jpg": {
+    "width": 900,
+    "quality": 85
   },
-  "ig.png": {
-    "width": 40,
-    "quality": 100
+  "ben-and-jacob.png": {
+    "width": 900,
+    "quality": 85
   },
-  "twitter.png": {
-    "width": 40,
-    "quality": 100
+  "ben-federal.png": {
+    "width": 900,
+    "quality": 85
+  },
+  "fists-federal.png": {
+    "width": 900,
+    "quality": 85
+  },
+  "fists-slo.jpg": {
+    "width": 900,
+    "quality": 85
+  },
+  "lauren-federal.png": {
+    "width": 900,
+    "quality": 85
+  },
+  "live-oriental.jpg": {
+    "width": 300,
+    "quality": 95
+  },
+  "promo-2026-fun.jpg": {
+    "width": 900,
+    "quality": 85
+  },
+  "promo-2026.jpg": {
+    "width": 900,
+    "quality": 85
+  },
+  "spy-federal.png": {
+    "width": 900,
+    "quality": 85
   }
 }

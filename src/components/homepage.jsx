@@ -121,7 +121,7 @@ const HomePage = () => (
           />
         </div>
         <div className="music-copy">
-          <p className="eyebrow">September 13, 2024 · What’s Left Records</p>
+          <p className="eyebrow">2024 · What’s Left Records</p>
           <h2>Music</h2>
           <p className="album-title">Divergence</p>
         </div>

@@ -1004,6 +1004,48 @@
     }
   }
 
+  @media (max-width: 768px) {
+    .hero {
+      display: block;
+      min-height: 0;
+      height: auto;
+      padding: 0 0 8px;
+    }
+
+    .hero-photo {
+      position: relative !important;
+      display: block;
+      height: auto !important;
+    }
+
+    .hero-photo picture {
+      height: auto;
+    }
+
+    .hero-photo img {
+      height: auto !important;
+      object-fit: contain !important;
+      object-position: center;
+    }
+
+    .hero-copy {
+      width: auto;
+      margin: 24px;
+    }
+
+    .music-section {
+      display: flex;
+      align-items: stretch;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .music-art {
+      width: min(100%, 260px);
+      margin-inline: auto;
+    }
+  }
+
   @media (max-width: 700px) {
     :root {
       --gutter: 22px;
@@ -1070,22 +1112,18 @@
       justify-self: start;
     }
 
-    .hero {
-      min-height: 620px;
-      height: calc(100svh - 70px);
-      padding: 72px 24px 86px;
-    }
-
-    .hero-photo img {
-      object-position: 54% center;
-    }
-
     .hero-shade {
       background: linear-gradient(90deg, rgba(6, 8, 7, .58), rgba(6, 8, 7, .08)), linear-gradient(0deg, rgba(6, 8, 7, .76), transparent 82%);
     }
 
     .hero h1 {
       font-size: 48px;
+    }
+
+    @media (max-width: 360px) {
+      .hero h1 {
+        font-size: 42px;
+      }
     }
 
     .hero-intro {
@@ -1101,17 +1139,6 @@
     .about-section h2,
     .merch-section h2 {
       font-size: 29px;
-    }
-
-    .music-section {
-      display: flex;
-      align-items: stretch;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .music-art {
-      width: min(100%, 260px);
     }
 
     .music-player iframe {

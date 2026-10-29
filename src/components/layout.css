@@ -623,7 +623,7 @@
       z-index: 0;
     }
 
-    .video-frame iframe {
+    .site-main .video-frame iframe {
       min-height: 0;
     }
 
@@ -648,6 +648,11 @@
 
     .video-frame button.video-load:hover {
       background: rgba(14, 16, 14, .2);
+    }
+
+    .video-frame button.video-load:focus-visible {
+      outline: 2px solid var(--paper);
+      outline-offset: -4px;
     }
 
     .video-play-mark {
@@ -937,8 +942,14 @@
       left: 0;
       display: none;
       align-items: stretch;
+      justify-content: flex-start;
       flex-direction: column;
       gap: 0;
+      max-height: calc(100vh - 100%);
+      max-height: calc(100dvh - 100%);
+      overflow-x: hidden;
+      overflow-y: auto;
+      overscroll-behavior-y: contain;
       border-bottom: 1px solid var(--line);
       padding: 18px 24px 24px;
       background: var(--ink);
@@ -952,6 +963,7 @@
     .nav-pages {
       align-items: stretch;
       flex-direction: column;
+      flex-shrink: 0;
       gap: 0;
       border: 0;
       padding: 0;

@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto"
-import { mkdir, readFile, writeFile, stat } from "node:fs/promises"
+import { mkdir, readFile, readdir, unlink, writeFile, stat } from "node:fs/promises"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
 import sharp from "sharp"
@@ -25,6 +25,7 @@ async function exists(file) {
 }
 
 const images = {}
+const currentMedia = new Set()
 for (const [name, { width, quality }] of Object.entries(settings)) {
   const input = path.join(root, "src/images", name)
   const source = await readFile(input)
@@ -51,6 +52,7 @@ for (const [name, { width, quality }] of Object.entries(settings)) {
     variants[format] = []
     for (const size of widths) {
       const filename = `${base}-${size}.${format}`
+      currentMedia.add(filename)
       const file = path.join(media, filename)
       if (!(await exists(file))) {
         await sharp(source)
@@ -77,17 +79,30 @@ for (const [name, { width, quality }] of Object.entries(settings)) {
   }
 }
 await writeFile(path.join(generated, "images.json"), JSON.stringify(images))
+for (const filename of await readdir(media)) {
+  if (
+    !currentMedia.has(filename) &&
+    /-[a-f0-9]{12}-\d+\.(avif|webp|jpg|png)$/.test(filename)
+  ) {
+    await unlink(path.join(media, filename))
+  }
+}
 
 const icons = path.join(output, "icons")
 await mkdir(icons, { recursive: true })
-const iconSource = path.join(root, "src/images/divergence-sm.jpg")
+const iconSource = path.join(root, "src/images/NW-LOGO-2.png")
 const iconSizes = [48, 72, 96, 144, 192, 256, 384, 512]
-for (const size of [...iconSizes, 32]) {
+for (const size of [...iconSizes, 16, 32]) {
   const target =
-    size === 32
-      ? path.join(output, "favicon-32x32.png")
+    size <= 32
+      ? path.join(output, `favicon-${size}x${size}.png`)
       : path.join(icons, `icon-${size}x${size}.png`)
-  await sharp(iconSource).resize(size, size).png().toFile(target)
+  await sharp(iconSource)
+    .rotate()
+    .resize(size, size, { fit: "contain", background: "#000000" })
+    .flatten({ background: "#000000" })
+    .png()
+    .toFile(target)
 }
 await writeFile(
   path.join(output, "manifest.webmanifest"),

@@ -14,7 +14,8 @@ export function onRenderHtml(pageContext) {
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         ${dangerouslySkipEscape(head)}
-        <link rel="icon" type="image/png" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=nw-logo-2" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=nw-logo-2" />
         <link rel="manifest" href="/manifest.webmanifest" />
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
         <link rel="sitemap" type="application/xml" href="/sitemap/sitemap-index.xml" />

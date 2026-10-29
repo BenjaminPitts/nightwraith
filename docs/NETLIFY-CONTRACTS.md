@@ -4,6 +4,11 @@ Updated for Phase 3 on local `2026-facelift`, from Phase 2 commit `5f849ca`.
 The architecture is now Vite + React with Vike static prerendering, not Gatsby.
 No remote settings, deploys, branches, commits, or pull requests were changed.
 
+This is a historical migration snapshot. Later content, design, asset counts,
+and favicon changes supersede its baseline comparisons. See the current README
+and repository configuration for the active workflow; live-site SEO parity and
+provider-side integration verification remain separate launch checks.
+
 ## Evidence categories
 
 - **Verified from repository code:** declarations in this working tree.
@@ -44,7 +49,8 @@ lockfile. [.nvmrc](../.nvmrc) is unchanged. Advisory package engines match.
 copies the prerendered custom error page to `dist/client/404.html`.
 `dist/server` is a build intermediate and is **not** the publish directory.
 Each route has real static HTML; no production SSR adapter or SPA fallback is
-required. Existing GitHub PR CI still runs `npm ci` and `npm run build`.
+required. GitHub PR CI runs `npm ci`, `npm run build`, `npm test`, and then
+`npm run test:build`, preserving the pinned Node/npm versions.
 
 No `_headers`, catch-all rewrite, environment-dependent page rendering, or new
 build plugin is introduced. Existing Gatsby configuration and API conventions
@@ -94,6 +100,35 @@ Repository configuration is explicit now, but inaccessible dashboard/context
 settings have not been assumed or edited. No speculative override of the
 production function runtime is included.
 
+### Required manual production cutover
+
+The repository cannot uninstall a dashboard-installed plugin. Plugin 3.8.4
+honors `NETLIFY_SKIP_GATSBY_BUILD_PLUGIN=true`, but the existing repository flag
+is preview-only and the currently installed dashboard version is unverified.
+No production override was added based on assumptions about that version.
+`netlify.toml` remains unchanged; do not treat a passing local build as proof
+that the production Gatsby plugin has been disabled.
+
+Before the owner starts the first Vite production build:
+
+1. Coordinate this change with the production cutover. Keep the runtime while
+  builds still need Gatsby, including queued or in-progress Gatsby builds.
+2. In Netlify, select the NightWraith project, then open
+  **Project configuration > Developer settings**. Under **Build settings**,
+  find **Essential Gatsby** in the **Runtime** field and select **Remove**.
+3. Also inspect **Project configuration > Developer settings > Build plugins**.
+  If Essential Gatsby / `@netlify/plugin-gatsby` is listed as an enabled plugin,
+  select **Disable** on its card. Removal from one installation mechanism does
+  not guarantee removal from another; leave unrelated plugins untouched.
+4. Confirm the production build still uses `npm run build`, publishes
+  `dist/client`, and retains `netlify/functions`. On the next owner-approved
+  build, verify the resolved plugin list/logs no longer run Essential Gatsby
+  or its cache, image-CDN, SSR, DSG, or Gatsby API lifecycle work. Verify the
+  native `sendMetric` function remains present.
+
+These are manual instructions, not completed dashboard actions. No deployment
+was triggered. See Netlify's [plugin removal instructions](https://docs.netlify.com/extend/install-and-use/build-plugins/#remove-a-plugin).
+
 ## Contact form and return route
 
 ### Verified from repository code
@@ -110,8 +145,9 @@ production function runtime is included.
 | Hidden form identity | `form-name=contact` |
 | User fields | `name`, `email`, `message` |
 
-The existing misspelled `netifly` prop is not Netlify detection; the correct
-attributes remain. No AJAX handler, field rename, validation change, or new spam
+The unused misspelled `netifly` prop was removed during final cleanup; the correct
+Netlify attributes remain, and user fields now have accessible names.
+No AJAX handler, field rename, validation change, or new spam
 protection was introduced. The full form is prerendered into
 `dist/client/contact/index.html`, so detection does not depend on hydration.
 
@@ -161,8 +197,11 @@ POST JSON payload and preserves the internal ingestion implementation.
 - Public route: `/api/sendMetric` via the exact rewrite in
   [netlify.toml](../netlify.toml); no broad API or SPA rewrite.
 - Payload: `{ "metricName": "<existing name>" }`.
-- Page effects still send `indexpage.load`, `bio`, `photos`, `press`, `contact`.
-  Videos still does not emit a page-load metric.
+- The accepted events are exactly `indexpage.load`, `bio`, `photos`, `press`,
+  and `contact`. The restored homepage effect sends `indexpage.load` once per
+  mount with a ref guard against effect replays. Videos emits no page-load metric.
+- Unsupported names, non-string names, and StatsD delimiter/control-character
+  attempts return 400 before a UDP socket is opened.
 - Existing StatsD counter format, UDP4, host `statsd.hostedgraphite.com`, and
   port 8125 are unchanged.
 - Existing server-only ingestion configuration remains in the function; no
@@ -176,9 +215,9 @@ POST JSON payload and preserves the internal ingestion implementation.
 
 ### Verified by local tests
 
-- Five Node tests mock `dgram.createSocket`; success, callback failure, methods,
-  missing input, malformed JSON, and base64 handling are covered. No UDP packet
-  is sent.
+- Six Node tests mock `dgram.createSocket`; all five valid events, callback
+  failure, methods, missing input, malformed JSON, base64 handling, unsupported
+  names, and injection attempts are covered. No UDP packet is sent.
 - Native function ZIP packaging succeeds with Netlify's packaging library.
 - Baseline ingestion template matches the server function. Its private prefix
   is absent from every file in `dist/client`.

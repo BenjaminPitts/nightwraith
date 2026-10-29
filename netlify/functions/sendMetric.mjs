@@ -1,5 +1,13 @@
 import dgram from "node:dgram"
 
+const supportedMetrics = new Set([
+  "indexpage.load",
+  "bio",
+  "contact",
+  "photos",
+  "press",
+])
+
 function sendMetric(req, res) {
   if (req.method === "POST") {
     const { metricName } = req.body
@@ -9,6 +17,12 @@ function sendMetric(req, res) {
       return res
         .status(400)
         .json({ status: "error", message: "Metric name missing" })
+    }
+
+    if (typeof metricName !== "string" || !supportedMetrics.has(metricName)) {
+      return res
+        .status(400)
+        .json({ status: "error", message: "Invalid metric name" })
     }
 
     // Create the UDP client and construct the message

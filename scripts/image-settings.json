@@ -12,8 +12,20 @@
     "quality": 80
   },
   "lauren-promo-bw.jpg": {
-    "width": 500,
-    "quality": 60
+    "width": 900,
+    "quality": 85
+  },
+  "live2.jpg": {
+    "width": 900,
+    "quality": 85
+  },
+  "NW-PROMO-39.jpg": {
+    "width": 900,
+    "quality": 85
+  },
+  "full-band-oriental-color.jpg": {
+    "width": 1200,
+    "quality": 90
   },
   "full-band-oriental2.jpg": {
     "width": 1800,
@@ -27,9 +39,9 @@
     "width": 300,
     "quality": 95
   },
-  "ben-jacob.jpg": {
-    "width": 300,
-    "quality": 95
+  "ben-igor-slo.jpg": {
+    "width": 900,
+    "quality": 85
   },
   "spy-oriental.jpg": {
     "width": 300,
@@ -75,10 +87,6 @@
     "width": 300,
     "quality": 95
   },
-  "hidive2.jpg": {
-    "width": 300,
-    "quality": 95
-  },
   "igor-hidive.jpg": {
     "width": 300,
     "quality": 95
@@ -91,7 +99,7 @@
     "width": 300,
     "quality": 95
   },
-  "ben2.jpg": {
+  "spy2.JPEG": {
     "width": 300,
     "quality": 95
   },
@@ -100,10 +108,6 @@
     "quality": 85
   },
   "spy.jpg": {
-    "width": 300,
-    "quality": 95
-  },
-  "igor2.jpg": {
     "width": 300,
     "quality": 95
   },

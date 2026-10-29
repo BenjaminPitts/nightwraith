@@ -10,6 +10,7 @@ export default function OptimizedImage({
   quality,
   className,
   loading = "lazy",
+  sizes,
 }) {
   const name = src.split("/").pop()
   const image = images[name]
@@ -18,6 +19,7 @@ export default function OptimizedImage({
       `Missing or stale optimized image: ${name}. Run npm run assets.`
     )
   }
+  const imageSizes = sizes ?? image.sizes
 
   return (
     <span
@@ -32,12 +34,12 @@ export default function OptimizedImage({
       }}
     >
       <picture>
-        <source type="image/avif" srcSet={image.avif} sizes={image.sizes} />
-        <source type="image/webp" srcSet={image.webp} sizes={image.sizes} />
+        <source type="image/avif" srcSet={image.avif} sizes={imageSizes} />
+        <source type="image/webp" srcSet={image.webp} sizes={imageSizes} />
         <img
           src={image.src}
           srcSet={image.fallback}
-          sizes={image.sizes}
+          sizes={imageSizes}
           width={image.width}
           height={image.height}
           alt={alt}

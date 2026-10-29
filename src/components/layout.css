@@ -233,18 +233,6 @@
     line-height: 1.9;
   }
 
-  .site-main .outer-box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 24px;
-  }
-
-  .site-main .inner-box {
-    margin: 0;
-    padding: 0;
-  }
-
   .site-main iframe {
     width: min(100%, 560px);
     min-height: 320px;
@@ -403,16 +391,6 @@
     padding: 12px 17px;
     font-size: 12px;
     font-weight: 600;
-  }
-
-  .button--light {
-    background: var(--paper);
-    color: var(--ink);
-  }
-
-  .button--light:hover {
-    background: var(--accent);
-    color: var(--ink);
   }
 
   .button--outline {
@@ -1062,8 +1040,8 @@
       font-size: 15px;
     }
 
-    .site-main .outer-box {
-      gap: 18px;
+    .contact a {
+      overflow-wrap: anywhere;
     }
 
     .site-main iframe {

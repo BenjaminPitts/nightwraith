@@ -25,11 +25,12 @@ const Bio = () => {
     <Layout>
       <h1>Bio</h1>
       <OptimizedImage
-        src="../images/blurry-band-bw.JPEG"
-        width={500}
-        quality={80}
-        alt="NW Promo"
-        style={{ margin: `1rem` }}
+        src="../images/nw-agr-promo.png"
+        width={1800}
+        quality={85}
+        sizes="(min-width: 576px) 500px, calc(100vw - 76px)"
+        alt="Black-and-white NightWraith band portrait in a room covered with signatures"
+        style={{ margin: `1rem`, width: "calc(100% - 2rem)", maxWidth: 500 }}
       />
       <br />
       <br />
@@ -65,7 +66,7 @@ const Bio = () => {
         album.
         <br />
         <br />
-        With <b>Lauren Viera (Dreadnought)</b> joining on keyboards in 2025, the
+        With <b>Lauren Viera</b> joining on keyboards in 2025, the
         band entered another period of transformation. NightWraith's current and
         former members also have roots in{" "}
         <b>Primitive Man, In the Company of Serpents</b> and <b>Dreadnought</b>,
@@ -73,17 +74,26 @@ const Bio = () => {
         has surrounded the project from its beginning.
         <br />
         <br />
-        Nearly ten years after forming, NightWraith has now completed their{" "}
-        <b>fourth full length album</b>. The new record promises to be darker,
-        heavier and more focused, while pushing further into the contrasts that
-        have gradually come to define the band. Death metal aggression sits
-        beside nostalgic synth tones, bleakness gives way to melody, and moments
-        of tension open into something strangely triumphant.
+        Nearly ten years after forming, NightWraith has completed their{" "}
+        <b>fourth full-length album, <i>Impending Rebellion</i></b>, scheduled
+        for release in 2027 through{" "}
+        <a
+          href="https://artgatesrecords.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Art Gates Records
+        </a>
+        . The new record promises to be darker, heavier, and more focused,
+        while pushing further into the contrasts that have gradually come
+        to define the band. Death metal aggression sits beside nostalgic
+        synth tones, bleakness gives way to melody, and moments of tension
+        open into something strangely triumphant.
         <br />
         <br />
-        Four albums in, NightWraith sounds less interested than ever in where
-        those elements are supposed to belong, and more certain of what to do
-        actually with them.
+        Four albums in, NightWraith sounds less interested than ever in
+        where those elements are supposed to belong, and more certain of
+        what to actually do with them.
         <br />
       </div>
     </Layout>

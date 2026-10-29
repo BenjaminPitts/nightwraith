@@ -80,8 +80,12 @@ originals are not copied to the website. Sharp generates responsive AVIF, WebP,
 and JPEG/PNG variants using the previous image widths/quality settings in
 [scripts/image-settings.json](./scripts/image-settings.json). The shared image
 component reserves dimensions and provides lazy loading and format fallbacks.
-Original inline sizing, margins, borders, and global CSS are retained. The header
-logo is a separate, small Vite-managed asset.
+Its width/quality props must match the registration; use wrapper styles to cap
+display size when sharing a registration. The homepage hero loads eagerly.
+Current variants are cached; obsolete generated variants are pruned on the next
+asset run. Source photographs are never pruned. The header logo is Vite-managed;
+16px/32px favicons and manifest icons use the NightWraith logo with proportional
+black padding.
 
 If Sharp or Vite's native tooling fails after switching Node/CPU architecture,
 stop the server and reinstall under the pinned runtime:
@@ -93,13 +97,9 @@ npm run clean
 npm run dev
 ```
 
-This repair sequence is guidance, not a reproduced native-module failure.
 Do not copy `node_modules` between machines/architectures or force incompatible
 dependencies. Retain the exact installation error if downloads fail.
-
-Validation used native macOS Apple Silicon (`node -p "process.arch"` prints
-`arm64`). Avoid mixing Rosetta/x64 Node with arm64 modules. Intel macOS, Rosetta,
-and the GitHub-hosted Linux workflow have not been executed in this phase.
+Avoid mixing Rosetta/x64 Node with arm64 modules on Apple Silicon.
 
 ## Repository structure
 
@@ -112,13 +112,12 @@ and the GitHub-hosted Linux workflow have not been executed in this phase.
 - [scripts/](./scripts/): assets, sitemap/robots/manifest, clean, and static 404.
 - [netlify/functions/](./netlify/functions/): server-only metrics ingestion.
 - [netlify.toml](./netlify.toml): static build/publish settings and API rewrite.
-- [tests/](./tests/): dependency-free Node tests.
+- [tests/](./tests/): Node tests, including Sharp-based icon checks.
 - [.github/workflows/](./.github/workflows/): existing PR install/build check.
 - `.generated/` and `dist/`: ignored generated output.
 
-Normal page links use full-document navigation, matching the existing separate
-pages. Persistent cross-section playback is a later phase, not part of this
-migration.
+Normal page links use full-document navigation. Spotify playback is not
+persistent across page navigations.
 
 ## Netlify and integration testing
 
@@ -146,31 +145,18 @@ delivery on direct visits. Local preview does not implement Netlify Forms.
 Verify form detection, receipt/notifications, and function routing separately on
 an owner-approved deploy preview.
 
-See [Netlify hosting contracts](./docs/NETLIFY-CONTRACTS.md) for the exact build
-and routing contract, evidence boundaries, and manual acceptance checklist.
+See [Netlify hosting contracts](./docs/NETLIFY-CONTRACTS.md) for the migration's
+hosting contract, evidence boundaries, and manual acceptance checklist. Its
+historical content/asset comparisons are not a current live-site SEO audit.
 
-## Validation and known warnings
+## Known limitations
 
-Node 22.23.4/npm 10.9.4 on macOS arm64 passed clean `npm ci`, development startup,
-cold production build, preview, seven-route checks, mocked function tests, and
-static-output checks. Gatsby baseline comparisons preserved titles/descriptions,
-canonicals, social metadata, structured data, page text, links, embed attributes,
-form attributes/fields, robots, and source CSS.
-
-- Installation reported **0 npm audit vulnerabilities** at validation time; this
-  is dependency metadata, not a production security assessment.
 - npm 10.9.4 installs Sharp's optional WASM fallback packages but marks
   `@img/sharp-wasm32`, `@emnapi/runtime`, and `tslib` as extraneous in `npm ls`.
-  They are optional entries in the lockfile; clean installation and native
-  image generation succeed. No force flags or pruning workaround were used.
-- Existing React development warnings remain for legacy `allowfullscreen`,
-  the misspelled unused `netifly` attribute, and SEO function `defaultProps`.
-  The correct Netlify detection attributes are retained. Spotify can also warn
-  that `allow` takes precedence over `allowfullscreen`.
-- Re-encoded images can differ slightly in compression and by about one pixel
-  in rendered dimensions; no visual redesign was made.
+  Native image generation succeeds; do not prune or force-install packages just
+  to hide these optional-package diagnostics.
+- Third-party embeds can emit provider-controlled browser warnings.
 
 Actual audio/video playback, Netlify form receipt, notifications, and remote UDP
 ingestion require manual integration verification. nvm/global npm setup commands
-are guidance: testing selected isolated official runtime binaries rather than
-changing the machine's global Node installation.
+are setup guidance, not commands run automatically by the site.

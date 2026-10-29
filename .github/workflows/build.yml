@@ -22,3 +22,7 @@ jobs:
         run: npm ci
       - name: Build production site
         run: npm run build
+      - name: Test metrics function
+        run: npm test
+      - name: Test prerendered production output
+        run: npm run test:build

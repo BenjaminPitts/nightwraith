@@ -6,25 +6,25 @@ import BandsintownShows from "./bandsintown-shows"
 // Change these three entries to choose the homepage photos; orientation follows source dimensions.
 const photoPreviews = [
   {
-    src: "../images/full-band-oriental.jpg",
-    width: 300,
-    quality: 95,
+    src: "../images/full-band-oriental-color.jpg",
+    width: 1200,
+    quality: 90,
     orientation: "landscape",
-    alt: "NightWraith performing live onstage",
+    alt: "NightWraith performing live at the Oriental Theater in color",
   },
   {
-    src: "../images/lauren-oriental.jpg",
+    src: "../images/live-oriental.jpg",
     width: 300,
     quality: 95,
     orientation: "portrait",
-    alt: "NightWraith keyboardist Lauren Viera",
+    alt: "Black-and-white photo of a NightWraith guitarist and drummer performing live",
   },
   {
-    src: "../images/ben-igor-oriental.jpg",
+    src: "../images/hidive.jpg",
     width: 300,
     quality: 95,
     orientation: "portrait",
-    alt: "NightWraith members Ben and Igor",
+    alt: "NightWraith musician performing under red stage lighting at the hi-dive",
   },
 ]
 
@@ -101,10 +101,10 @@ const HomePage = () => (
         />
         <div className="hero-shade" />
         <div className="hero-copy">
-          <p className="eyebrow">Denver, Colorado · Est. 2016</p>
+          <p className="eyebrow">Est. 2016</p>
           <h1 id="hero-title">NightWraith</h1>
           <p className="hero-intro">
-            Melodic and progressive heavy metal from Denver, Colorado.
+            Melodic and progressive death metal from Denver, Colorado, USA.
           </p>
         </div>
       </section>
@@ -196,23 +196,10 @@ const HomePage = () => (
         </div>
         <div className="about-copy">
           <p>
-            NightWraith is a melodic heavy metal band from Denver, Colorado,
-            formed in 2016. Their music combines death metal, progressive
-            songwriting and 80s-inspired synths. Their lyrics explore
-            mortality, nature, authenticity and the search for meaning.
+            NightWraith is a melodic heavy metal band from Denver, Colorado, formed in 2016. Longtime musical companions in the Denver metal scene, the band combines death metal aggression, progressive songwriting, and '80s-inspired synthesizers. Their lyrics explore mortality, nature, authenticity, and the search for meaning. NightWraith released its self-titled debut in 2019, followed by <i>Offering </i> (2022), as Hammond organ tones and classic rock melodies became increasingly important to their sound.
           </p>
           <p>
-            Longtime musical companions in the Denver metal scene, the band
-            released its self-titled debut in 2019, followed by <i>Offering</i>
-            in 2022. Hammond organ, synthesizers and classic-rock melody became
-            increasingly important to its sound.
-          </p>
-          <p>
-            On their third album, <i>Divergence</i> (2024), fast drums and heavy
-            guitars meet analog synthesizers and cinematic melodies. Friends
-            from Dreadnought, Wayfarer, Dragondeer, The Nightsweats and Abhoria
-            contributed to the sessions; producer Zack Ohren mixed and mastered
-            the album.
+            On their third album, <i>Divergence </i> (2024), fast drums and heavy guitars meet analog synthesizers and cinematic melodies. Friends from Dreadnought, Wayfarer, Dragondeer, and The Nightsweats contributed to the sessions, while producer Zack Ohren mixed and mastered the album. Their upcoming fourth album, <i>Impending Rebellion</i>, is scheduled for release in 2027 through Art Gates Records and promises to be their darkest and most cohesive material to date.
           </p>
           <a className="text-link" href="/bio/">
             Full Biography

@@ -31,5 +31,21 @@ export const Head = () => (
 )
 
 export default function IndexPage() {
+  const telemetrySent = React.useRef(false)
+
+  React.useEffect(() => {
+    if (telemetrySent.current) return
+    telemetrySent.current = true
+
+    fetch("/api/sendMetric", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ metricName: "indexpage.load" }),
+    })
+      .then(response => response.json())
+      .then(data => console.log(data.message))
+      .catch(error => console.error("Error calling metric API:", error))
+  }, [])
+
   return <HomePage />
 }

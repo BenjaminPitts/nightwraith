@@ -3,11 +3,11 @@ import PropTypes from "prop-types"
 import { siteMetadata } from "../site"
 
 function Seo({
-  description,
+  description = "",
   title,
-  pathname,
-  noindex,
-  structuredData,
+  pathname = "/",
+  noindex = false,
+  structuredData = null,
   children,
 }) {
   const metaDescription = description || siteMetadata.description
@@ -54,13 +54,6 @@ function Seo({
       {children}
     </>
   )
-}
-
-Seo.defaultProps = {
-  description: "",
-  pathname: "/",
-  noindex: false,
-  structuredData: null,
 }
 
 Seo.propTypes = {

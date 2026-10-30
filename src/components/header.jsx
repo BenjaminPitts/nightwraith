@@ -1,7 +1,7 @@
 import * as React from "react"
 import logoImage from "../images/NW-LOGO-2.png"
 
-const sectionLinks = [
+export const sectionLinks = [
   ["Music", "music"],
   ["Shows", "shows"],
   ["Videos", "videos"],

@@ -296,8 +296,12 @@
     font-size: 12px;
   }
 
+  .site-footer a:hover {
+    color: var(--paper);
+  }
+
   .footer-socials {
-    grid-column: 1 / -1;
+    grid-column: 1;
     justify-content: flex-start;
     border-top: 1px solid var(--line);
     padding-top: 18px;
@@ -305,8 +309,11 @@
 
   .footer-download {
     grid-column: 2;
-    grid-row: 3;
+    grid-row: 2;
+    align-self: start;
     justify-self: end;
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
   }
 
   .copyright {
@@ -462,10 +469,22 @@
 
   .music-section {
     display: grid;
-    grid-template-columns: minmax(200px, .85fr) minmax(190px, .75fr) minmax(320px, 1.35fr);
+    grid-template-columns: minmax(200px, .85fr) minmax(320px, 1.35fr);
     align-items: center;
     gap: 42px;
     --section-fill: #151812;
+  }
+
+  .music-heading {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+  }
+
+  .music-album {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: stretch;
   }
 
   .music-art {
@@ -476,18 +495,19 @@
   }
 
   .music-copy {
-    align-self: center;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 18px;
+    text-align: left;
   }
 
   .music-copy .eyebrow {
+    margin-bottom: 0;
     color: var(--accent-secondary);
     font-size: 10px;
     line-height: 1.6;
-  }
-
-  .music-copy h2 {
-    margin-bottom: 18px;
-    font-size: 32px;
   }
 
   .album-title {
@@ -499,7 +519,7 @@
   }
 
   .music-player {
-    grid-column: 3;
+    grid-column: 2;
     width: 100%;
     max-width: 540px;
   }
@@ -850,7 +870,7 @@
   .press-section {
     display: grid;
     grid-template-columns: .6fr 1.4fr;
-    align-items: center;
+    align-items: start;
     gap: 44px;
     --section-fill: var(--panel);
   }
@@ -992,7 +1012,7 @@
     }
 
     .music-section {
-      grid-template-columns: minmax(150px, .8fr) minmax(170px, .8fr) minmax(230px, 1.2fr);
+      grid-template-columns: minmax(170px, .8fr) minmax(230px, 1.2fr);
       gap: 24px;
     }
 
@@ -1122,6 +1142,8 @@
     .footer-download {
       grid-row: auto;
       justify-self: start;
+      border-top: 0;
+      padding-top: 0;
     }
 
     .hero-shade {

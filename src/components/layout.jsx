@@ -1,6 +1,6 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import Header from "./header"
+import Header, { sectionLinks } from "./header"
 import "./layout.css"
 
 const Layout = ({ children, fullWidth = false }) => (
@@ -18,10 +18,11 @@ const Layout = ({ children, fullWidth = false }) => (
           NightWraith
         </a>
         <nav className="footer-nav" aria-label="Footer">
-          <a href="/bio/">Bio</a>
-          <a href="/press/">Press</a>
-          <a href="/videos/">Videos</a>
-          <a href="/photos/">Photos</a>
+          {sectionLinks.map(([label, section]) => (
+            <a href={fullWidth ? `#${section}` : `/#${section}`} key={section}>
+              {label}
+            </a>
+          ))}
           <a href="/contact/">Contact</a>
         </nav>
         <div className="footer-socials" aria-label="NightWraith elsewhere">

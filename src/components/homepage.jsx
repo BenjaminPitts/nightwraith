@@ -110,7 +110,11 @@ const HomePage = () => (
       </section>
 
       <section className="home-section home-section--toned music-section" id="music">
-        <div className="music-art">
+        <div className="section-heading music-heading">
+          <h2>Music</h2>
+        </div>
+        <div className="music-album">
+          <div className="music-art">
           <OptimizedImage
             src="../images/divergence-sm.jpg"
             width={1000}
@@ -119,11 +123,11 @@ const HomePage = () => (
             imageStyle={{ display: "block", width: "100%", height: "auto" }}
             style={{ width: "100%", maxWidth: "none" }}
           />
-        </div>
-        <div className="music-copy">
-          <p className="eyebrow">2024 · What’s Left Records</p>
-          <h2>Music</h2>
-          <p className="album-title">Divergence</p>
+          </div>
+          <div className="music-copy">
+            <h3 className="album-title">Divergence</h3>
+            <p className="eyebrow">2024 · What’s Left Records</p>
+          </div>
         </div>
         <div className="music-player">
           <iframe
@@ -196,10 +200,10 @@ const HomePage = () => (
         </div>
         <div className="about-copy">
           <p>
-            NightWraith is a melodic heavy metal band from Denver, Colorado, formed in 2016. Longtime musical companions in the Denver metal scene, the band combines death metal aggression, progressive songwriting, and '80s-inspired synthesizers. Their lyrics explore mortality, nature, authenticity, and the search for meaning. NightWraith released its self-titled debut in 2019, followed by <i>Offering </i> (2022), as Hammond organ tones and classic rock melodies became increasingly important to their sound.
+            NightWraith is a melodic heavy metal band from Denver, Colorado, formed in 2016. Longtime musical companions in the Denver metal scene, the band combines death metal aggression, progressive songwriting, and '80s-inspired synthesizers while their lyrics explore mortality, nature, and the search for meaning. NightWraith released its self-titled debut in 2019, followed by <i>Offering </i> (2022), as keyboards and classic rock tones became increasingly important to their sound.
           </p>
           <p>
-            On their third album, <i>Divergence </i> (2024), fast drums and heavy guitars meet analog synthesizers and cinematic melodies. Friends from Dreadnought, Wayfarer, Dragondeer, and The Nightsweats contributed to the sessions, while producer Zack Ohren mixed and mastered the album. Their upcoming fourth album, <i>Impending Rebellion</i>, is scheduled for release in 2027 through Art Gates Records and promises to be their darkest and most cohesive material to date.
+            On their third album, <i>Divergence </i> (2024), driving percussion and harmonized guitars meet analog synthesizers and cinematic melodies. Friends from Dreadnought, Wayfarer, Dragondeer, and The Nightsweats contributed to the sessions, while producer Zack Ohren (Machine Head, Immolation) mixed and mastered the album. Their upcoming fourth album, <i>Impending Rebellion</i>, is scheduled for release in 2027 via <a href="https://artgatesrecords.com/" target="_blank" rel="noreferrer">Art Gates Records</a> which promises to be their darkest and most cohesive material to date.
           </p>
           <a className="text-link" href="/bio/">
             Full Biography

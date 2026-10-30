@@ -1,109 +1,162 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<h1>NightWraith Official Website!</h1>
-<h2>Can be viewed at: (https://nightwraithband.com)[https://nightwraithband.com]</h2>
+# NightWraith
 
-<br><br>
-<p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+The official NightWraith band website: <https://nightwraithband.com/>.
+Built with **Vite, React 18, and Vike static prerendering**, hosted on Netlify.
+Each page has its own generated HTML, content, and metadata before JavaScript runs.
+There is no client-only SPA fallback or production rendering server.
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+## Prerequisites
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+- Git and [nvm](https://github.com/nvm-sh/nvm).
+- **Node.js 22.23.4**, pinned in [.nvmrc](./.nvmrc).
+- **npm 10.9.4**, used for validation and CI.
 
-## 🚀 Quick start
+Package engines are advisory, not strictly enforced. No global framework CLI is
+needed. If necessary, select npm once after activating the project Node version:
 
-1.  **Create a Gatsby site.**
+```sh
+npm install --global npm@10.9.4
+```
 
-    Use the Gatsby CLI ([install instructions](https://www.gatsbyjs.com/docs/tutorial/part-0/#gatsby-cli)) to create a new site, specifying the default starter.
+## Getting started
 
-    ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+```sh
+git clone https://github.com/BenjaminPitts/nightwraith.git
+cd nightwraith
+nvm install
+nvm use
+npm ci
+npm run dev
+```
 
-1.  **Start developing.**
+Open <http://127.0.0.1:8000/>. Stop with Ctrl+C. `npm run develop` and `npm start`
+remain aliases. Use the committed lockfile; do not use `--force` or
+`--legacy-peer-deps` to hide dependency conflicts.
 
-    Navigate into your new site’s directory and start it up.
+The startup script generates responsive images and other static assets before
+Vike starts. The first run takes longer; unchanged image variants are reused.
+After replacing source images while the server is running, stop and restart it
+to regenerate assets.
 
-    ```shell
-    cd my-default-starter/
-    gatsby develop
-    ```
+## Production build, preview, and checks
 
-1.  **Open the source code and start editing!**
+Stop development/preview servers before rebuilding or cleaning.
 
-    Your site is now running at `http://localhost:8000`!
+```sh
+npm run build
+npm run serve
+```
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby Tutorial](https://www.gatsbyjs.com/docs/tutorial/part-4/#use-graphiql-to-explore-the-data-layer-and-write-graphql-queries)._
+Open <http://127.0.0.1:9000/>. Deployable static output is `dist/client/`.
+`dist/server/` is a build/prerender intermediate, not a Netlify SSR deployment.
+Vike's preview warning correctly says to deploy the static files in production.
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+```sh
+npm test
+npm run test:build
+```
 
-## 🚀 Quick start (Gatsby Cloud)
+`npm test` uses mocked UDP sockets to check the native metrics function without
+sending telemetry. `npm run test:build` requires a completed build and checks
+prerendered routes, SEO/JSON-LD, the static form, sitemap, assets, and absence of
+server ingestion configuration from published files.
 
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
+For stale generated assets/cache or a cold build:
 
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-default)
+```sh
+npm run clean
+npm run build
+```
 
-## 🧐 What's inside?
+Cleaning removes only `dist/`, `.generated/`, and Vite's dependency cache.
+It is not required on every startup.
+Reload or close browser tabs left open from Gatsby; their obsolete
+`/__webpack_hmr` polling can otherwise produce harmless local 404 requests.
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+## Images and native dependencies
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+Original photography/artwork remains in [src/images/](./src/images/), but large
+originals are not copied to the website. Sharp generates responsive AVIF, WebP,
+and JPEG/PNG variants using the previous image widths/quality settings in
+[scripts/image-settings.json](./scripts/image-settings.json). The shared image
+component reserves dimensions and provides lazy loading and format fallbacks.
+Its width/quality props must match the registration; use wrapper styles to cap
+display size when sharing a registration. The homepage hero loads eagerly.
+Current variants are cached; obsolete generated variants are pruned on the next
+asset run. Source photographs are never pruned. The header logo is Vite-managed;
+16px/32px favicons and manifest icons use the NightWraith logo with proportional
+black padding.
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+If Sharp or Vite's native tooling fails after switching Node/CPU architecture,
+stop the server and reinstall under the pinned runtime:
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+```sh
+nvm use
+npm ci
+npm run clean
+npm run dev
+```
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+Do not copy `node_modules` between machines/architectures or force incompatible
+dependencies. Retain the exact installation error if downloads fail.
+Avoid mixing Rosetta/x64 Node with arm64 modules on Apple Silicon.
 
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+## Repository structure
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+- [src/pages/](./src/pages/): preserved page content and per-route Vike configs;
+  shared server/client render hooks.
+- [src/components/](./src/components/): layout, header, SEO, form, responsive image
+  component, and unchanged CSS.
+- [src/site.js](./src/site.js): canonical site metadata and six sitemap routes.
+- [src/images/](./src/images/): retained source images.
+- [scripts/](./scripts/): assets, sitemap/robots/manifest, clean, and static 404.
+- [netlify/functions/](./netlify/functions/): server-only metrics ingestion.
+- [netlify.toml](./netlify.toml): static build/publish settings and API rewrite.
+- [tests/](./tests/): Node tests, including Sharp-based icon checks.
+- [.github/workflows/](./.github/workflows/): existing PR install/build check.
+- `.generated/` and `dist/`: ignored generated output.
 
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/) for more detail).
+Normal page links use full-document navigation. Spotify playback is not
+persistent across page navigations.
 
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+## Netlify and integration testing
 
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+Committed settings use `npm run build`, publish `dist/client`, and package
+`netlify/functions`. `/api/sendMetric` rewrites only to the native metrics
+function; there is deliberately no `/* /index.html 200` fallback.
 
-9.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
+**Before deploying, verify dashboard/context overrides and remove or disable any
+old Essential Gatsby build plugin.** No remote settings were changed.
 
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+No production credentials are needed to render pages. Local development and
+preview deliberately return explicit **503 JSON** from `/api/sendMetric` instead
+of executing ingestion. The existing page effects log that explanatory response;
+the browser's 503 resource warning is expected. Production uses the native
+function and preserves its existing metric names, payload, and responses.
 
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+Netlify CLI is optional for frontend work. Netlify Dev/build can be used for
+provider routing/function integration, but that CLI workflow was not tested
+here and may execute real ingestion if the function is called. Do not send live
+telemetry or form submissions as casual local tests.
 
-12. **`README.md`**: A text file containing useful reference information about your project.
+The unchanged contact form is present in generated HTML for Netlify detection.
+Its native POST returns to `/thanks/`, which remains noindex and does not claim
+delivery on direct visits. Local preview does not implement Netlify Forms.
+Verify form detection, receipt/notifications, and function routing separately on
+an owner-approved deploy preview.
 
-## 🎓 Learning Gatsby
+See [Netlify hosting contracts](./docs/NETLIFY-CONTRACTS.md) for the migration's
+hosting contract, evidence boundaries, and manual acceptance checklist. Its
+historical content/asset comparisons are not a current live-site SEO audit.
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
+## Known limitations
 
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+- npm 10.9.4 installs Sharp's optional WASM fallback packages but marks
+  `@img/sharp-wasm32`, `@emnapi/runtime`, and `tslib` as extraneous in `npm ls`.
+  Native image generation succeeds; do not prune or force-install packages just
+  to hide these optional-package diagnostics.
+- Third-party embeds can emit provider-controlled browser warnings.
 
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[Build, Deploy, and Host On The Only Cloud Built For Gatsby](https://www.gatsbyjs.com/products/cloud/)
-
-Gatsby Cloud is an end-to-end cloud platform specifically built for the Gatsby framework that combines a modern developer experience with an optimized, global edge network.
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+Actual audio/video playback, Netlify form receipt, notifications, and remote UDP
+ingestion require manual integration verification. nvm/global npm setup commands
+are setup guidance, not commands run automatically by the site.
